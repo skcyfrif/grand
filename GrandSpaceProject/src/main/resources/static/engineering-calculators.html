@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grandspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="/assets/images/grspacefavicon.jpg">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="css/animation.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+
+
+
+
+    <style>
+        .portlet {
+
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .portlet-title {
+            text-align: center;
+        }
+
+        .caption {
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .input-group {
+            width: 100%;
+        }
+
+        .input-group-addon {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .form-actions {
+            text-align: right;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn.blue {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn.red {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        #total-cost {
+            margin-top: 20px;
+        }
+
+        #error-message {
+            color: Red;
+            display: none;
+        }
+
+
+        .complete_construction_month {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            height: 100% !important;
+        }
+
+        .complete_construction_month h2 {
+            text-align: center;
+
+        }
+
+        .complete_construction_month .chart-container {
+            width: 100%;
+            /* Limit the container width */
+            /* height: 60vh; */
+            /* Set a fixed percentage of the viewport height */
+        }
+
+        .complete_construction_month canvas {
+            width: 100%;
+            height: 100%;
+            /* Ensure the canvas fills the container */
+        }
+
+        .complete_construction_month h2 {
+            font-size: 18px;
+        }
+
+        table {
+            margin-bottom: 0px;
+        }
+
+        #gspichart {
+            width: 80%;
+            /* height: 600px; */
+            margin: 0px auto;
+        }
+
+        .gs_quantity_of_material .blue {
+            color: blue;
+        }
+
+        .gs_quantity_of_material .green {
+            color: green;
+        }
+
+        .gs_quantity_of_material .yellow {
+            color: yellow;
+        }
+
+        .gs_quantity_of_material .red {
+            color: red;
+        }
+
+        .gs_quantity_of_material h2 {
+            font-size: 23px;
+            font-weight: 600;
+            text-transform: capitalize;
+            color: #000;
+        }
+
+
+        .gs_quantity_of_material {
+            padding-top: 20px;
+        }
+
+        .gs_quantity_of_material h3 {
+            font-size: 18px;
+            font-weight: 500;
+
+
+        }
+
+        .gs_buildup_area .card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gs_buildup_area .card h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+
+        .gs_buildup_area .card p {
+            margin: 10px 0;
+        }
+
+        .gs_buildup_area .note {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 5px solid #4caf50;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .gs_buildup_area .formula {
+            font-family: "Courier New", Courier, monospace;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .gs_buildup_area .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .section-heading {
+            font-size: 18px;
+            color: #000;
+        }
+
+        .gs_const_image img {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="gs_header_sec">
+        <my-header></my-header>
+    </div>
+    <section class="page-title  gs_spc_lr sg_service_sec"
+        style="background-image: url(assets/images/web-project-dettails-img5.jpeg);">
+        <div class="auto-container">
+            <div class="title-outer">
+                <h1 class="title">Engineering-Calculators</h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Engineering-Calculators</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gs_calculators_sec gs_spc_lr">
+            <div class="gs_calculatore_body row align-items-center">
+                <div class="col-md-7">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <h2 class="caption H2_MarginTB5"
+                                title="Construction Cost Calculator | House Construction Cost Calculator">
+                                <img id="ctl00_cphPageContent_imgCostEstimator"
+                                    src="./assets/images/calculeter_img_logo.png" style="width:25px;border-width:0px;">
+                                <span class="caption-subject bold uppercase">Construction Cost Estimator</span>
+                            </h2>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="error-message"></div>
+                                </div>
+                            </div>
+                            <form id="costEstimatorForm" role="form" class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label" for="area">
+                                            Builtup Area
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <input type="number" id="area" id="builtup-area"
+                                                    title="Enter builtup square feet" class="form-control" required>
+                                                <span class="input-group-addon bold">ft <sup>2</sup></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label" for="costPerSqFt">
+                                            Approx Cost (Per Square Feet)
+                                        </label>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <select id="costPerSqFt" class="form-control">
+                                                    <option value="1000">Normal($1000)</option>
+                                                    <option value="1200">Standard($1200)</option>
+                                                    <option value="1500">Premium($1500)</option>
+                                                </select>                                                
+                                                <span class="input-group-addon bold">Rs.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions text-right">
+                                    <button type="button" onclick="calculateCost()" class="btn blue">Calculate</button>
+                                    <button type="reset" id="reset-btn" class="btn red" title="Reset">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 gs_const_image">
+                    <img src="assets/images/gs_ms_main.png" alt="">
+                </div>
+                <div class="col calculation_of_cost_tebule">
+                    <h3>Calculation of Cost | Approx amount of cost for given construction is <span
+                            class="gs_total_price">60,00,000.00
+                            Rs.</span></h3>
+                    <div class="row gs_Approximate_cost">
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Approximate cost on various work of materials per thumb rule</th>
+                                            <th>Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="costDetails">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 complete_construction_month">
+                            <h2>
+                                To <strong>complete this construction</strong> in
+                                <span style="color: red;">6 months</span> timeline,
+                                <strong>money required</strong> is as below
+                            </h2>
+                            <div class="chart-container" style="position: relative; height: 300px;">
+                                <canvas id="constructionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col gs_quantity_of_material">
+                <h2 style="text-align:center;">Quantity of Material Required for Given Construction <span
+                        class="gs_total_price">Area</span></h2>
+                <div class="row gs_quantity_of_material_body">
+                    <div class="col-md-6">
+                        <h3 style="text-align:center;">Quantity of material required for 1000 ft²</h3>
+
+                        <!-- Responsive table wrapper -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Material</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="gs_quantity_img">
+                                    <tr>
+                                        <td><img src="assets/images/sg_cement.png" alt=""><span>Cement</span></td>
+                                        <td class="blue">400.00 Bags</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/gs_sand.png" alt=""><span>Send</span></td>
+                                        <td class="blue">816.00 Ton</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/gs-Aggregate.png" alt=""><span>Aggregate</span></td>
+                                        <td class="blue">608.00 Ton</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/Icon_Steel_Weight.png" alt=""><span>Steel</span>
+                                        </td>
+                                        <td class="green">4000.00 Kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/gs_PaintArea.png" alt=""><span>Paint</span>
+                                        </td>
+                                        <td class="yellow">180.00 lt</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/gs_claybricks.png" alt=""><span>Bricks</span>
+                                        </td>
+                                        <td class="red">8000.00 Pcs</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/images/gs_flooring.png" alt=""><span>Flooring</span>
+                                        </td>
+                                        <td class="blue">1300.00 ft²</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Container for Highcharts chart -->
+                        <div id="gspichart"></div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col gs_buildup_area">
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2>Total Cost</h2>
+                            <div class="formula">
+                                Buildup area × Approx cost per sq. ft.<br>
+                                = 1000 × 1000<br>
+                                = 1,000,000.00 Rs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <div class="section">
+                                <h2>Amount of Cement Required</h2>
+                                <div class="formula">
+                                    Buildup area × 0.4<br>
+                                    = 1000 × 0.4<br>
+                                    = 400 Bags
+                                </div>
+                            </div>
+
+                            <div class="section formula">
+                                <h2 class="section-heading">Cement Amount</h2>
+                                <div class="calculation">
+                                    <div class="gs_fractiontop_top">
+                                        =
+                                        <span class="fractiontop">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>16.4</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × Total cost<br>
+
+                                    </div>
+                                    <div class="gs_fractiontop_bottom">
+                                        =
+                                        <span class="fractionbottom">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>16.4</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × 1,000,000.00<br>
+                                        = <strong>164,000.00 Rs.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Amount of cement required per 1 ft2 = 0.4 bags & 16.4%
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <div class="section">
+                                <h2>Amount of Sand Required</h2>
+                                <div class="calculation formula">
+                                    = Builtup area × 0.816<br>
+                                    = 1000 × 0.816<br>
+                                    = <strong>816.00 Ton</strong>
+                                </div>
+                            </div>
+                            <div class="section formula">
+                                <h2 class="section-heading">Sand Amount</h2>
+                                <div class="calculation">
+                                    <div class="gs_fractiontop_top">
+                                        =
+                                        <span class="fractiontop">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>12.3</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × Total cost<br>
+
+                                    </div>
+                                    <div class="gs_fractiontop_bottom">
+                                        =
+                                        <span class="fractionbottom">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>12.3</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × 1,000,000.00<br>
+                                        = <strong>123,000.00 Rs.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Amount of sand required per 1 ft² = 0.816 ton & 12.3%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <div class="section">
+                                <h2>Amount of Aggregate Required</h2>
+                                <div class="formula">
+                                    Buildup area × 0.608<br>
+                                    = 1000 × 0.608<br>
+                                    = 608 Ton
+                                </div>
+                            </div>
+                            <div class="section formula">
+                                <h2 class="section-heading">Aggregate Amount</h2>
+                                <div class="calculation">
+                                    <div class="gs_fractiontop_top">
+                                        =
+                                        <span class="fractiontop">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>7.4</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × Total cost<br>
+                                    </div>
+                                    <div class="gs_fractiontop_bottom">
+                                        =
+                                        <span class="fractionbottom">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>7.4</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × 1,000,000.00<br>
+                                        = <strong>74000.00 Rs.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Amount of aggregate required per 1 ft2 = 0.608 ton & 7.4%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2>Amount of Steel Required</h2>
+                            <div class="formula">
+                                Buildup area × 4<br>
+                                = 1000 × 4<br>
+                                = 4000 Kg
+                            </div>
+                            <div class="section formula">
+                                <h2 class="section-heading">Steel Amount</h2>
+                                <div class="calculation">
+                                    <div class="gs_fractiontop_top">
+                                        =
+                                        <span class="fractiontop">
+                                            <math>
+                                                <mfrac>
+                                                    <mn>24.6</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × Total cost<br>
+                                    </div>
+                                    <div class="gs_fractiontop_bottom">
+                                        <span class="fractionbottom">
+                                            =
+                                            <math>
+                                                <mfrac>
+                                                    <mn>24.6</mn>
+                                                    <mn>100</mn>
+                                                </mfrac>
+                                            </math>
+                                        </span>
+                                        × 1,000,000.00<br>
+                                        = <strong>246,000.00 Rs.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Amount of steel required per 1 ft2 = 4 ton & 24.6%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2>Amount of Paint Required</h2>
+                            <div class="formula">
+                                Buildup area × 0.18<br>
+                                = 1000 × 0.18<br>
+                                = 180.00 lt
+                            </div>
+                            <div class="note">
+                                Note: Amount of paint required per 1 ft2 = 0.18 lt. & 4.1%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2> Flooring</h2>
+                            <div class="formula">
+                                Buildup area × 1.3<br>
+                                = 1000 × 1.3<br>
+                                = 1300.00 Sq.ft.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2 class="section-heading">Finishers</h2>
+
+                            <div class="calculation formula">
+                                <div class="gs_fractiontop_top">
+                                    =
+                                    <span class="fractiontop">
+                                        <math>
+                                            <mfrac>
+                                                <mn>16.5</mn>
+                                                <mn>100</mn>
+                                            </mfrac>
+                                        </math>
+                                    </span>
+                                    × Total cost<br>
+                                </div>
+                                <div class="gs_fractiontop_bottom">
+                                    =
+                                    <span class="fractionbottom">
+                                        <math>
+                                            <mfrac>
+                                                <mn>16.5</mn>
+                                                <mn>100</mn>
+                                            </mfrac>
+                                        </math>
+                                    </span>
+                                    × 1,000,000.00<br>
+                                    = <strong>165,000.00 Rs.</strong>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Paint (4.1 %), Tiles (8.0 %), Paint (4.4 %)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <h2 class="section-heading">Fittings</h2>
+                            <div class="calculation formula">
+                                <div class="gs_fractiontop_top">
+                                    =
+                                    <span class="fractiontop">
+                                        <math>
+                                            <mfrac>
+                                                <mn>22.8</mn>
+                                                <mn>100</mn>
+                                            </mfrac>
+                                        </math>
+                                    </span>
+                                    × Total cost<br>
+                                </div>
+                                <div class="gs_fractiontop_bottom">
+                                    =
+                                    <span class="fractionbottom">
+                                        <math>
+                                            <mfrac>
+                                                <mn>22.8</mn>
+                                                <mn>100</mn>
+                                            </mfrac>
+                                        </math>
+                                    </span>
+                                    × 1,000,000.00<br>
+                                    = <strong>228.000.00 Rs.</strong>
+                                </div>
+                            </div>
+                            <div class="note">
+                                Note: Window (3.0 %), Doors (3.4 %), Plumbing (5.5 %), Eletrical (6.8 %), Sanitary
+                                (4.1
+                                %)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Sg_Footer_ -->
+    <my-footer></my-footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script>
+        Highcharts.chart('gspichart', {
+            chart: {
+                type: 'variablepie'
+            },
+            title: {
+                text: 'Approximate cost on various work of material to complete the construction for 2000 ft²'
+            },
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> <b>{point.name}</b><br/>' +
+                    '' +
+                    ''
+            },
+            credits: {
+                enabled: false // This disables the "Highcharts.com" credit
+            },
+            series: [{
+                minPointSize: 10,
+                innerSize: '20%',
+                zMin: 0,
+                name: 'countries',
+                borderRadius: 5,
+                data: [{
+                    name: 'Cement,16.4%<br>164000Rs',
+                    y: 505992,
+                    z: 95
+                }, {
+                    name: 'Send,12.3%<br>123000Rs',
+                    y: 551695,
+                    z: 118
+                }, {
+                    name: 'Aggregate,7.4%<br>74000Rs',
+                    y: 312679,
+                    z: 131
+                }, {
+                    name: 'Steel,24.5%<br>246000Rs',
+                    y: 78865,
+                    z: 136
+                }, {
+                    name: 'Finisher,16.5%<<br>165000Rs',
+                    y: 301336,
+                    z: 198
+                }, {
+                    name: 'Fitting.22.8%<br>228000Rs',
+                    y: 357114,
+                    z: 238
+                }],
+                colors: [
+                    '#4caefe',
+                    '#3dc3e8',
+                    '#2dd9db',
+                    '#1feeaf',
+                    '#0ff3a0',
+
+                    '#23e274'
+                ]
+            }]
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <script>
+        const ctx = document.getElementById('constructionChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '1st Month 21.9%',
+                    '2nd Month 18.4%',
+                    '3rd Month 11.1%',
+                    '4th Month 16.9%',
+                    '5th Month 17.8%',
+                    '6th Month 13.9%'
+                ],
+                datasets: [{
+                    label: 'Amount (in Rs.)',
+                    data: [1314000, 1104000, 666000, 1014000, 1068000, 834000],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Allows the chart to adjust dynamically
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return value.toLocaleString() + " Rs.";
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <script>
+        // JavaScript to make header sticky on scroll
+        window.onscroll = function () { makeHeaderSticky() };
+
+        function makeHeaderSticky() {
+            const header = document.getElementById("header");
+            const sticky = header.offsetTop;
+
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        // Mobile menu toggle function
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+        <script src="testss.js"></script>
+        <script src="config.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grandspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/animation.css">
+    <script type="module" src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .sg_modale_dialog {
+            transition: all 0.3s ease;
+        }
+
+        /* Page 1 custom width */
+        .gs_page1-style {
+            width: 1400px !important;
+        }
+
+        /* Page 2 custom width */
+        .gs_page2-style {
+            width: 1400px !important;
+            height: 100%;
+        }
+
+        /* Remove Bootstrap's default max-width */
+        .modal-dialog {
+            max-width: unset;
+        }
+
+        .sg_modale_dialog {
+            max-width: 100% !important;
+        }
+        .gs_footer_sec {
+            padding-top: 0px;
+        }
+        .gs_footer_bg {
+            margin-top: 0px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="gs_header_sec">
+        <my-header></my-header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="multiPageModal" tabindex="-1" aria-labelledby="multiPageModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog  sg_modale_dialog gs_page1-style" id="modalDialog">
+                <div class="modal-content sg_modale_body_project">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="multiPageModalLabel">Contact Us- +91 9583215595</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Page 1 -->
+                        <div id="page1" class="modal-page">
+                            <div class="gs_calculatore_body row align-items-center">
+                                <div class="col-md-7">
+                                    <div class="portlet light">
+                                        <div class="portlet-title">
+                                            <h2 class="caption H2_MarginTB5"
+                                                title="Construction Cost Calculator | House Construction Cost Calculator">
+                                                <img id="ctl00_cphPageContent_imgCostEstimator"
+                                                    src="./assets/images/calculeter_img_logo.png"
+                                                    style="width:25px;border-width:0px;">
+                                                <span class="caption-subject bold uppercase">Construction Cost
+                                                    Estimator</span>
+                                            </h2>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="error-message"></div>
+                                                </div>
+                                            </div>
+                                            <form id="costEstimatorForm" role="form" class="form-horizontal">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="area">
+                                                            Builtup Area
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <input type="number" id="area"
+                                                                    title="Enter builtup square feet"
+                                                                    class="form-control" required="">
+                                                                <span class="input-group-addon bold">ft
+                                                                    <sup>2</sup></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="costPerSqFt">
+                                                            Approx Cost (Per Square Feet)
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <select id="costPerSqFt" class="form-control">
+                                                                    <option value="1000">Normal($1000)</option>
+                                                                    <option value="1200">Standard($1200)</option>
+                                                                    <option value="1500">Premium($1500)</option>
+                                                                </select>
+                                                                <span class="input-group-addon bold">Rs.</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions text-right">
+                                                    <button type="button" onclick="calculateCost()"
+                                                        class="btn blue">Calculate</button>
+                                                    <button type="reset" id="reset-btn" class="btn red"
+                                                        title="Reset">Reset</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 gs_const_image">
+                                    <img src="assets/images/gs_ms_main.png" alt="">
+                                </div>
+                                <div class="col calculation_of_cost_tebule">
+                                    <h3>Calculation of Cost | Approx amount of cost for given construction is <span
+                                            class="gs_total_price">60,00,000.00
+                                            Rs.</span></h3>
+                                    <div class="row gs_Approximate_cost">
+                                        <div class="col-md-6">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="table-dark">
+                                                        <tr>
+                                                            <th>Approximate cost on various work of materials per thumb
+                                                                rule</th>
+                                                            <th>Cost</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="costDetails">
+                                                        <tr>
+                                                            <td>Cement (16.4%)</td>
+                                                            <td>91,111,020 Rs.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sand (12.3%)</td>
+                                                            <td>68,333,265 Rs.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aggregate (7.4%)</td>
+                                                            <td>41,111,070 Rs.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Steel (24.6%)</td>
+                                                            <td>136,666,530 Rs.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Finishers (16.5%)</td>
+                                                            <td>91,666,575 Rs.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Fittings (28.8%)</td>
+                                                            <td>159,999,840 Rs.</td>
+                                                        </tr>
+                                                        <tr class="table-success">
+                                                            <th>Total Cost</th>
+                                                            <th>555,555,000 Rs.</th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 complete_construction_month">
+                                            <h2>
+                                                To <strong>complete this construction</strong> in
+                                                <span style="color: red;">6 months</span> timeline,
+                                                <strong>money required</strong> is as below
+                                            </h2>
+                                            <div class="chart-container" style="position: relative; height: 300px;">
+                                                <canvas id="constructionChart" width="816" height="300"
+                                                    style="display: block; box-sizing: border-box; height: 300px; width: 816px;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gs_Project_detail_body">
+                                        <button type="button" class="gs_Project_button  next-btn">Learn More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 2 -->
+                        <div id="page2" class="modal-page d-none">
+                            <div class="cyf_education_prim_section">
+                                <div class="cyf_education_prim_body">
+                                    <div class="cyf_education_prim_tittle col-md-12">
+                                        <h2>Subsscription Packages Plane</h2>
+                                        <h4>Subscribe today and enjoy more</h4>
+                                    </div>
+                                    <div class="cyf_education_prim_details col col-md-12">
+                                        <div class="cyf_education_prim_ul">
+                                            <div class="cyf_education_prim_card">
+                                                <div class="cyf_education_prim_card_top">
+                                                    <div class="cyf_education_prim_card_plane">
+                                                        <h3>Basic</h3>
+
+                                                    </div>
+                                                    <div class="cyf_education_prim_card_price2">
+                                                        <h3>3565</h3>
+                                                        <h5>/month</h5>
+                                                    </div>
+
+                                                    <div class="cyf_education_prim_card_Price">
+                                                        <ul>
+                                                            <li>Access to all standard features</li>
+                                                            <li>720p video quality</li>
+                                                            <li>Single device usage</li>
+                                                            <li>Limited customer support</li>
+                                                        </ul>
+                                                    </div>
+
+
+                                                </div>
+                                                <a href="subscription_page.html">
+                                                    <button class="cyf_select">Select</button></a>
+                                            </div>
+                                            <div class="cyf_education_prim_card">
+
+                                                <div class="cyf_education_prim_card_top">
+                                                    <div class="cyf_education_prim_card_plane">
+                                                        <h3>Pro</h3>
+                                                        <img class="cyf_education_prim_card_plane_img"
+                                                            src="./assets/images/sg_premium-.png" alt="">
+                                                    </div>
+                                                    <div class="cyf_education_prim_card_price2">
+                                                        <h3>3565</h3>
+                                                        <h5>/month</h5>
+                                                    </div>
+
+                                                    <div class="cyf_education_prim_card_Price">
+                                                        <ul>
+                                                            <li>Access to all standard features</li>
+                                                            <li>720p video quality</li>
+                                                            <li>Single device usage</li>
+                                                            <li>Limited customer support</li>
+                                                        </ul>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                                <a href="#">
+                                                    <button class="cyf_select">Select</button></a>
+
+
+
+                                            </div>
+                                            <div class="cyf_education_prim_card">
+                                                <div class="cyf_education_prim_card_top">
+                                                    <div class="cyf_education_prim_card_plane">
+                                                        <h3>Premium</h3>
+                                                    </div>
+                                                    <div class="cyf_education_prim_card_price2">
+                                                        <h3>3565</h3>
+                                                        <h5>/month</h5>
+                                                    </div>
+
+                                                    <div class="cyf_education_prim_card_Price">
+                                                        <ul>
+                                                            <li>Access to all standard features</li>
+                                                            <li>720p video quality</li>
+                                                            <li>Single device usage</li>
+                                                            <li>Limited customer support</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <a href="#">
+                                                    <button class="cyf_select">Select</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                            <button type="button" class="gs_Project_button gs_Project_button_skip btn btn-primary">Skip</button>
+                            <!-- <a href="Dashbord/xhtml/client-dashboard.html" class="gs_Project_button gs_Project_button_skip btn btn-primary">Skip</a> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modale -->
+    </div>
+    <section class="sglogin_section_body">
+        <div class="background sglogin_section">
+            <div class="login-container sg_login_details">
+                <div class="modal-content gs_login_button">
+                    <div class="modal-header sg_modal-header">
+                        <h5 class="modal-title">LOG IN</h5>
+                    </div>
+                    <div class="login-container">
+                        <form id="loginForm">
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="password" id="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="forgot-password">
+                                <a href="#">Forgot password</a>
+                            </div>
+                            <button type="submit" class="login-btn" data-bs-toggle="modal">Log In</button>
+                            <p class="signup">
+                                Don't have an account? <a href="Register.html">Sign up</a>
+                            </p>
+                            <div id="error-message" class="error-message"></div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sg_Footer_ -->
+    <my-footer></my-footer>
+
+
+    <!-- modale_script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const page1 = document.getElementById("page1");
+            const page2 = document.getElementById("page2");
+            const modalDialog = document.getElementById("modalDialog");
+
+            nextBtn.addEventListener("click", function () {
+                // Switch to Page 2
+                page1.classList.add("d-none");
+                page2.classList.remove("d-none");
+                modalDialog.classList.remove("gs_page1-style");
+                modalDialog.classList.add("gs_page2-style");
+            });
+
+            prevBtn.addEventListener("click", function () {
+                // Switch to Page 1
+                page2.classList.add("d-none");
+                page1.classList.remove("d-none");
+                modalDialog.classList.remove("gs_page2-style");
+                modalDialog.classList.add("gs_page1-style");
+            });
+        });
+    </script>
+    <!-- modale_script -->
+
+
+
+    <!-- <script>
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            const email = $('#email').val();
+            const password = $('#password').val();
+
+            $.ajax({
+                url: 'https://cyfrifpro.com/client/apilogin',  // Server URL for handling login
+                type: 'POST',
+                data: {
+                    email: email,
+                    password: password
+                },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.status === 'success') {
+                        // Redirect to autologin page (invisible to user)
+                        window.location.href = data.redirect + '?email=' + encodeURIComponent(email)
+                            + '&password=' + encodeURIComponent(password);
+                    } else {
+                        // Handle login failure
+                        alert(data.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error during login:', error);
+                    $('#error-message').text('An error occurred. Please try again.');
+                }
+            });
+        });
+    </script> -->
+    <script src="testss.js"></script>
+    <script src="login.js"></script>
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="config.js"></script>
+</body>
+
+</html>

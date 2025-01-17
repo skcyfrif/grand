@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>grandspce</title>
+    <meta charset="utf-8">
+
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="Backend_css/style.css" rel="stylesheet">
+    <script type="module" src="client.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <my-client></my-client>
+
+    <!--**********************************
+            Content body start
+        ***********************************-->
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            
+            <div class="row mt-10">
+                <!-- <div class="next-btn d-flex justify-content-end col-sm-12">
+                        <button class="client_details_add_bottn" onclick="window.location.href='manegeradd.html';">
+                            ADD
+                        </button>
+                    </div> -->
+
+                <div class="col-xl-12">
+                    <div class="">
+
+                        <!-- row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Project Budget</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-responsive-md">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="width80">Pr.Id</th>
+                                                        <th>Approved Budget</th>
+                                                        <th>Phases</th>
+                                                        <th>Paid/Unpaid</th>
+                                                        <th>Due-Amount</th>
+                                                        <th>Due Date</th>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody id="budgetTableBody">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- modal  -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--**********************************
+            Content body end
+        ***********************************-->
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com/" target="_blank">cyfrife.com</a>
+                <span class="current-year">2025</span>
+            </p>
+        </div>
+    </div>
+    <!--**********************************
+            Footer end
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+
+
+
+
+
+    <script>
+        // Data for the chart
+        const data = {
+            labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            datasets: [
+                {
+                    label: 'Revenue',
+                    data: [400, 500, 450, 550, 300, 520, 350],
+                    backgroundColor: 'rgba(66, 165, 245, 0.7)',
+                    borderColor: 'rgba(66, 165, 245, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Sales',
+                    data: [300, 400, 350, 500, 250, 450, 300],
+                    backgroundColor: 'rgba(33, 33, 33, 0.7)',
+                    borderColor: 'rgba(33, 33, 33, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Profit',
+                    data: [250, 350, 300, 480, 200, 420, 250],
+                    backgroundColor: 'rgba(158, 158, 158, 0.7)',
+                    borderColor: 'rgba(158, 158, 158, 1)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Configuration for the chart
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: '$ (thousands)'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render the chart
+        const salesChart = new Chart(
+            document.getElementById('salesChart'),
+            config
+        );
+    </script>
+
+
+    <!-- photo uplored -->
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image')
+                        .attr('src', e.target.result);
+                    // Show the submit button
+                    $('#submitButton').show();
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function submitImage() {
+            alert("Image submitted successfully!");
+        }
+    </script>
+    <!-- counters -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                const targetValue = parseInt(counter.textContent, 10); // Get target value from text content
+                const duration = 100; // Animation duration in milliseconds
+                const stepTime = Math.abs(Math.floor(duration / targetValue));
+                let currentValue = 0;
+
+                const incrementCounter = () => {
+                    currentValue += 1;
+                    counter.textContent = currentValue;
+                    if (currentValue < targetValue) {
+                        setTimeout(incrementCounter, stepTime);
+                    } else {
+                        counter.textContent = targetValue; // Ensure the final value is exact
+                    }
+                };
+
+                incrementCounter();
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="js/plugins-init/datatables.init.js"></script>
+
+    <script src="js/custom.min.js"></script>
+    <script src="js/deznav-init.js"></script>
+    <script src="js/payment-dashbord/projectPayment.js"></script>
+    <script src="config.js"></script>
+
+</body>
+
+</html>

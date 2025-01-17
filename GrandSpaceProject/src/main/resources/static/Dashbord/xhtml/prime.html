@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>grandspce</title>
+    <meta charset="utf-8">
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Vectormap -->
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="Backend_css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="Backend_css/dasbored.css">
+    <!-- my-header -->
+    <script type="module" src="main.js"></script>
+
+
+    <style>
+        .gs-vender-uplored_image label {
+            margin-right: 10px;
+
+        }
+
+        .gs-vender-uplored_image img {
+            width: 10px;
+
+        }
+
+
+       
+
+        .gs_modale_botton_ .header span {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .gs_modale_botton_ .document-number {
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .gs_modale_botton_ .details {
+            padding: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .gs_modale_botton_ .details div {
+            margin-bottom: 10px;
+        }
+
+        .gs_modale_botton_ .recipients {
+            margin-top: 15px;
+        }
+
+        .gs_modale_botton_ .recipients button {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .gs_modale_botton_ .message-input {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .gs_modale_botton_ .message-input input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .gs_modale_botton_ .message-input button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .gs_modale_botton_ .message-input button:hover {
+            background-color: #0056b3;
+        }
+
+        .gs_modale_botton_ .message-input .attachment {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .gs-vender-uplored_image img {}
+
+        .attachment-icon {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+        }
+
+        .message-input .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reply-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        #reply-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-group-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+
+
+
+        .gs_chart_box_message .chat-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gs_chart_box_message .message-container {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .gs_chart_box_message .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            max-width: 70%;
+            word-wrap: break-word;
+            /* display: flex; */
+            align-items: center;
+        }
+
+        .gs_chart_box_message .sender-message {
+            background-color: #e0e0e0;
+            color: #000;
+            align-self: flex-end;
+        }
+
+       .gs_chart_box_message .receiver-message {
+            background-color: #ddb484;
+            color: #fff;
+            align-self: flex-start;
+        }
+
+        .gs_chart_box_message .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .gs_chart_box_message .input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+
+        .gs_chart_box_message .input-container input {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .gs_chart_box_message .input-container button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: hidden;
+        }
+
+        .message-container:hover {
+            overflow-y: auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <my-header></my-header>
+    <div class="content-body">
+        <!-- row -->
+        <div class="col-xl-12">
+
+
+            <div class="gs_header_sec">
+                <my-header></my-header>
+        
+                <!-- Modal -->
+                <div class="modal fade" id="multiPageModal" tabindex="-1" aria-labelledby="multiPageModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog  sg_modale_dialog gs_page1-style" id="modalDialog">
+                        <div class="modal-content sg_modale_body_project">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="multiPageModalLabel">Contact Us- +91 9583215595</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Page 1 -->
+                                <div id="page1" class="modal-page">
+                                    <div class="gs_calculatore_body row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="portlet light">
+                                                <div class="portlet-title">
+                                                    <h2 class="caption H2_MarginTB5"
+                                                        title="Construction Cost Calculator | House Construction Cost Calculator">
+                                                        <img id="ctl00_cphPageContent_imgCostEstimator"
+                                                            src="./assets/images/calculeter_img_logo.png"
+                                                            style="width:25px;border-width:0px;">
+                                                        <span class="caption-subject bold uppercase">Construction Cost
+                                                            Estimator</span>
+                                                    </h2>
+                                                </div>
+                                                <div class="portlet-body form">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div id="error-message"></div>
+                                                        </div>
+                                                    </div>
+                                                    <form id="costEstimatorForm" role="form" class="form-horizontal">
+                                                        <div class="form-body">
+                                                            <div class="form-group">
+                                                                <label class="col-md-6 control-label" for="area">
+                                                                    Builtup Area
+                                                                </label>
+                                                                <div class="col-md-6">
+                                                                    <div class="input-group">
+                                                                        <input type="number" id="area"
+                                                                            title="Enter builtup square feet"
+                                                                            class="form-control" required="">
+                                                                        <span class="input-group-addon bold">ft
+                                                                            <sup>2</sup></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-6 control-label" for="costPerSqFt">
+                                                                    Approx Cost (Per Square Feet)
+                                                                </label>
+                                                                <div class="col-md-6">
+                                                                    <div class="input-group">
+                                                                        <select id="costPerSqFt" class="form-control">
+                                                                            <option value="1000">Normal($1000)</option>
+                                                                            <option value="1200">Standard($1200)</option>
+                                                                            <option value="1500">Premium($1500)</option>
+                                                                        </select>
+                                                                        <span class="input-group-addon bold">Rs.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-actions text-right">
+                                                            <button type="button" onclick="calculateCost()"
+                                                                class="btn blue">Calculate</button>
+                                                            <button type="reset" id="reset-btn" class="btn red"
+                                                                title="Reset">Reset</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 gs_const_image">
+                                            <img src="assets/images/gs_ms_main.png" alt="">
+                                        </div>
+                                        <div class="col calculation_of_cost_tebule">
+                                            <h3>Calculation of Cost | Approx amount of cost for given construction is <span
+                                                    class="gs_total_price">60,00,000.00
+                                                    Rs.</span></h3>
+                                            <div class="row gs_Approximate_cost">
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead class="table-dark">
+                                                                <tr>
+                                                                    <th>Approximate cost on various work of materials per thumb
+                                                                        rule</th>
+                                                                    <th>Cost</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="costDetails">
+                                                                <tr>
+                                                                    <td>Cement (16.4%)</td>
+                                                                    <td>91,111,020 Rs.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sand (12.3%)</td>
+                                                                    <td>68,333,265 Rs.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Aggregate (7.4%)</td>
+                                                                    <td>41,111,070 Rs.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Steel (24.6%)</td>
+                                                                    <td>136,666,530 Rs.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Finishers (16.5%)</td>
+                                                                    <td>91,666,575 Rs.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Fittings (28.8%)</td>
+                                                                    <td>159,999,840 Rs.</td>
+                                                                </tr>
+                                                                <tr class="table-success">
+                                                                    <th>Total Cost</th>
+                                                                    <th>555,555,000 Rs.</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 complete_construction_month">
+                                                    <h2>
+                                                        To <strong>complete this construction</strong> in
+                                                        <span style="color: red;">6 months</span> timeline,
+                                                        <strong>money required</strong> is as below
+                                                    </h2>
+                                                    <div class="chart-container" style="position: relative; height: 300px;">
+                                                        <canvas id="constructionChart" width="816" height="300"
+                                                            style="display: block; box-sizing: border-box; height: 300px; width: 816px;"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gs_Project_detail_body">
+                                                <button type="button" class="gs_Project_button  next-btn">Learn More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Page 2 -->
+                                <div id="page2" class="modal-page d-none">
+                                    <div class="cyf_education_prim_section">
+                                        <div class="cyf_education_prim_body">
+                                            <div class="cyf_education_prim_tittle col-md-12">
+                                                <h2>Subsscription Packages Plane</h2>
+                                                <h4>Subscribe today and enjoy more</h4>
+                                            </div>
+                                            <div class="cyf_education_prim_details col col-md-12">
+                                                <div class="cyf_education_prim_ul">
+                                                    <div class="cyf_education_prim_card">
+                                                        <div class="cyf_education_prim_card_top">
+                                                            <div class="cyf_education_prim_card_plane">
+                                                                <h3>Basic</h3>
+        
+                                                            </div>
+                                                            <div class="cyf_education_prim_card_price2">
+                                                                <h3>3565</h3>
+                                                                <h5>/month</h5>
+                                                            </div>
+        
+                                                            <div class="cyf_education_prim_card_Price">
+                                                                <ul>
+                                                                    <li>Access to all standard features</li>
+                                                                    <li>720p video quality</li>
+                                                                    <li>Single device usage</li>
+                                                                    <li>Limited customer support</li>
+                                                                </ul>
+                                                            </div>
+        
+        
+                                                        </div>
+                                                        <a href="subscription_page.html">
+                                                            <button class="cyf_select">Select</button></a>
+                                                    </div>
+                                                    <div class="cyf_education_prim_card">
+        
+                                                        <div class="cyf_education_prim_card_top">
+                                                            <div class="cyf_education_prim_card_plane">
+                                                                <h3>Pro</h3>
+                                                                <img class="cyf_education_prim_card_plane_img"
+                                                                    src="./assets/images/sg_premium-.png" alt="">
+                                                            </div>
+                                                            <div class="cyf_education_prim_card_price2">
+                                                                <h3>3565</h3>
+                                                                <h5>/month</h5>
+                                                            </div>
+        
+                                                            <div class="cyf_education_prim_card_Price">
+                                                                <ul>
+                                                                    <li>Access to all standard features</li>
+                                                                    <li>720p video quality</li>
+                                                                    <li>Single device usage</li>
+                                                                    <li>Limited customer support</li>
+                                                                </ul>
+                                                            </div>
+        
+        
+        
+        
+                                                        </div>
+                                                        <a href="#">
+                                                            <button class="cyf_select">Select</button></a>
+        
+        
+        
+                                                    </div>
+                                                    <div class="cyf_education_prim_card">
+                                                        <div class="cyf_education_prim_card_top">
+                                                            <div class="cyf_education_prim_card_plane">
+                                                                <h3>Premium</h3>
+                                                            </div>
+                                                            <div class="cyf_education_prim_card_price2">
+                                                                <h3>3565</h3>
+                                                                <h5>/month</h5>
+                                                            </div>
+        
+                                                            <div class="cyf_education_prim_card_Price">
+                                                                <ul>
+                                                                    <li>Access to all standard features</li>
+                                                                    <li>720p video quality</li>
+                                                                    <li>Single device usage</li>
+                                                                    <li>Limited customer support</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#">
+                                                            <button class="cyf_select">Select</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                                    <button type="button" class="gs_Project_button gs_Project_button_skip btn btn-primary">Skip</button>
+                                    <!-- <a href="Dashbord/xhtml/client-dashboard.html" class="gs_Project_button gs_Project_button_skip btn btn-primary">Skip</a> -->
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modale -->
+            </div>
+            <!-- row -->
+            
+
+
+               
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com.com/" target="_blank">cyfrife.com</a>
+                <span class="current-year">2025</span>
+            </p>
+        </div>
+    </div>
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+    <!-- message-container_box -->
+
+    <script>
+        const messageContainer = document.getElementById('message-container');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', () => {
+            const messageText = messageInput.value.trim();
+
+            if (messageText === '') {
+                alert('Please enter a message.');
+                return;
+            }
+
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message sender-message';
+
+            const avatar = document.createElement('img');
+            avatar.src = 'images/profile/bk_img_profaile.png';
+            avatar.alt = 'Sender Avatar';
+            avatar.className = 'avatar';
+
+            messageElement.appendChild(avatar);
+            messageElement.appendChild(document.createTextNode(messageText));
+
+            messageContainer.appendChild(messageElement);
+
+            messageInput.value = '';
+
+            // Scroll to the bottom of the container
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        });
+    </script>
+    <script>
+        // Add event listener for all "Cancel Bid" buttons
+        document.querySelectorAll('.cancel-bid').forEach(button => {
+            button.addEventListener('click', function () {
+                // Show confirmation dialog
+                const confirmation = confirm("Are you sure you want to cancel the bid?");
+                if (confirmation) {
+                    alert("Bid has been successfully canceled.");
+                    // Logic to remove the card or update the UI
+                    const card = this.closest('.user-card');
+                    if (card) {
+                        card.remove();
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="vendor/chartjs/chart.bundle.min.js"></script>
+    <script src="vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/deznav-init.js"></script>
+    <!-- Dashboard 1 -->
+    <script src="js/projrct-dashbord/assignedProject.js"></script>
+    <script src="config.js"></script>
+
+</body>
+
+</html>

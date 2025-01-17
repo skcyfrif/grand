@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "cyfrifprotech/grandspace"
+        TAG = "latest"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Checkout source code
+                checkout scm
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}:${TAG}", "./grandspace")
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                        docker.image("${IMAGE_NAME}:${TAG}").push()
+                    }
+                }
+            }
+        }
+        stage('Deploy Container') {
+            steps {
+                script {
+                    // Remove the old container if it exists
+                    sh "docker rm -f grandspace || true"
+
+                    // Run a new container with the updated image
+                    sh "docker run -d --name grandspace -p 3030:80 ${IMAGE_NAME}:${TAG}"
+                }
+            }
+        }
+    }
+}

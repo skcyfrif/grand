@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Pricing Table</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* widdt-100%
+
+        objet-fitcover
+        objetpositio-center */
+        .card-header {
+            background: linear-gradient(135deg, #2e6af5, #1c2336);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card-price {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: #4caf50;
+        }
+
+        .card-price small {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-body ul li {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <!-- Free Plan -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="pricing-card">
+                    <div class="card-header">Free</div>
+                    <div class="card-body text-center">
+                        <div class="card-price">$0 <small>per month</small></div>
+                        <ul>
+                            <li>Free Check Printing</li>
+                            <li>Pay Anyone</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-primary w-75">Purchase</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Plan -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="pricing-card">
+                    <div class="card-header">Personal</div>
+                    <div class="card-body text-center">
+                        <div class="card-price">$9.99 <small>per month</small></div>
+                        <ul>
+                            <li>Free Check Printing</li>
+                            <li>Pay Anyone</li>
+                            <li>Send/Receive Deposit</li>
+                            <li>Instant Payment</li>
+                            <li>Apply for Free Credit</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-success w-75">Purchase</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="pricing-card">
+                    <div class="card-header">Business</div>
+                    <div class="card-body text-center">
+                        <div class="card-price">$69.99 <small>per year</small></div>
+                        <ul>
+                            <li>Free Check Printing</li>
+                            <li>Pay Anyone</li>
+                            <li>Send/Receive Deposit</li>
+                            <li>Instant Payment</li>
+                            <li>Higher Transaction Limit</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-danger w-75">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="config.js"></script>
+</body>
+</html>

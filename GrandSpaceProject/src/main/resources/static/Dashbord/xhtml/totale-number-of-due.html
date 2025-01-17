@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>grandspce</title>
+    <meta charset="utf-8">
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Vectormap -->
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="Backend_css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="Backend_css/dasbored.css">
+    <!-- my-header -->
+    <script type="module" src="main.js"></script>
+
+
+</head>
+
+<body>
+
+    <my-header></my-header>
+
+
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="next-btn d-flex justify-content-between col-sm-12">
+                    <button onclick="goBack()" class="client_details_add_bottn"><i class="fas fa-arrow-left me-2"></i>Back</button>
+
+                    
+                    <!-- <button class="client_details_add_bottn" onclick="window.location.href='project_details_add.html';">
+                        ADD
+                    </button> -->
+                </div>
+
+                <div class="col-xl-12">
+                    <div class="">
+
+                        <!-- row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Awaiting Estimate</h4>
+                                    </div>
+                                    <div class="card-body" id="projects">
+                                        <div class="table-responsive">
+                                            <table class="table table-responsive-md">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="width80">Project Id</th>
+                                                        <th>Total Payment Phase</th>
+                                                        <th>No Of Paid Phase</th>
+                                                        <th>Total amount</th>
+                                                        <th>Total Paid Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com.com/" target="_blank">cyfrife.com</a>
+                <span class="current-year">2025</span>
+            </p>
+        </div>
+    </div>
+    <!--**********************************
+            Footer end
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="vendor/chartjs/chart.bundle.min.js"></script>
+    <script src="vendor/owl-carousel/owl.carousel.js"></script>
+
+  
+
+   
+    <script src="js/custom.min.js"></script>
+    <script src="js/deznav-init.js"></script>
+    <!-- Dashboard 1 -->
+
+    <script>
+        function carouselReview() {
+            /*  testimonial one function by = owl.carousel.js */
+            jQuery('.testimonial-one').owlCarousel({
+                loop: true,
+                autoplay: true,
+                margin: 0,
+                nav: true,
+                dots: false,
+                navText: ['<i class="las la-long-arrow-alt-left"></i>', '<i class="las la-long-arrow-alt-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+
+                    480: {
+                        items: 1
+                    },
+
+                    767: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+            /*Custom Navigation work*/
+            jQuery('#next-slide').on('click', function () {
+                $('.testimonial-one').trigger('next.owl.carousel');
+            });
+
+            jQuery('#prev-slide').on('click', function () {
+                $('.testimonial-one').trigger('prev.owl.carousel');
+            });
+            /*Custom Navigation work*/
+        }
+
+        jQuery(window).on('load', function () {
+            setTimeout(function () {
+                carouselReview();
+            }, 1000);
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            var actions = $("table td:last-child").html();
+
+            // Append table with add row form on add new button click
+            $(".add-new").click(function () {
+                $(this).attr("disabled", "disabled");
+                var index = $("table tbody tr:last-child").index();
+                var row = '<tr>' +
+                    '<td></td>' +  // Empty cell for serial number
+                    '<td><input type="text" class="form-control" name="requirement" id="requirement"></td>' +
+                    '<td><input type="text" class="form-control" name="quantity" id="quantity"></td>' +
+                    '<td><input type="text" class="form-control" name="description" id="description"></td>' +
+                    '<td><input type="text" class="form-control" name="extra_description" id="extra_description"></td>' +
+                    '<td><input type="text" class="form-control" name="due_date" id="due_date"></td>' +
+                    '<td>' + actions + '</td>' +
+                    '</tr>';
+                $(".table tbody").append(row);
+                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+                $('[data-toggle="tooltip"]').tooltip();
+                updateSerialNumbers(); // Update serial numbers after adding row
+            });
+
+            // Add row on add button click
+            $(document).on("click", ".add", function () {
+                var empty = false;
+                var input = $(this).parents("tr").find('input[type="text"]');
+                input.each(function () {
+                    if (!$(this).val()) {
+                        $(this).addClass("error");
+                        empty = true;
+                    } else {
+                        $(this).removeClass("error");
+                    }
+                });
+                $(this).parents("tr").find(".error").first().focus();
+                if (!empty) {
+                    input.each(function () {
+                        $(this).parent("td").html($(this).val());
+                    });
+                    $(this).parents("tr").find(".add, .edit").toggle();
+                    $(".add-new").removeAttr("disabled");
+                    updateSerialNumbers(); // Update serial numbers after adding data
+                }
+            });
+
+            // Edit row on edit button click
+            $(document).on("click", ".edit", function () {
+                var currentRow = $(this).parents("tr");
+                currentRow.find("td:not(:last-child)").each(function () {
+                    var cellText = $(this).text();
+                    $(this).html('<input type="text" class="form-control" value="' + cellText + '">');
+                });
+                $(this).parents("tr").find(".add, .edit").toggle();
+                var saveBtn = '<a class="save" title="Save" data-toggle="tooltip"><i class="material-icons">&#xE161;</i></a>';
+                $(this).parents("tr").find(".edit").after(saveBtn);
+                $(".add-new").attr("disabled", "disabled");
+            });
+
+            // Save row on save button click
+            $(document).on("click", ".save", function () {
+                var currentRow = $(this).parents("tr");
+                var input = currentRow.find('input[type="text"]');
+                input.each(function () {
+                    $(this).parent("td").html($(this).val());
+                });
+                $(this).parents("tr").find(".save").remove();
+                $(this).parents("tr").find(".add, .edit").toggle();
+                $(".add-new").removeAttr("disabled");
+                updateSerialNumbers(); // Update serial numbers after saving
+            });
+
+            // Delete row on delete button click
+            $(document).on("click", ".delete", function () {
+                $(this).parents("tr").remove();
+                $(".add-new").removeAttr("disabled");
+                updateSerialNumbers(); // Update serial numbers after deletion
+            });
+
+            // Function to update serial numbers
+            function updateSerialNumbers() {
+                $("table tbody tr").each(function (index) {
+                    $(this).find("td:first").text(index + 1); // Update the first column (serial number)
+                });
+            }
+        });
+    </script>
+
+    <script src="js/payment-dashbord/totalPaidAmount.js"></script>
+    <script src="config.js"></script>
+
+</body>
+
+</html>

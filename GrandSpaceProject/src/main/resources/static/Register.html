@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grandspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/animation.css">
+    <script type="module" src="main.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .gs_login_sectuse {
+            padding-top: 0px !important;
+
+        }
+
+        .gs_footer_sec_body {
+            margin-top: 0px !important;
+        }
+
+        .flash-message {
+            position: fixed;
+            left: 0px;
+            margin: auto;
+            width: 30%;
+            top: 0px;
+            right: 0px;
+            z-index: 1000;
+            padding: 15px 20px;
+            background-color: #28a745;
+            /* Success color */
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            display: none;
+            /* Initially hidden */
+        }
+
+        .flash-message.error {
+            background-color: #d6b389;
+            /* Error color */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="gs_header_sec">
+        <my-header></my-header>
+    </div>
+    <section class="sg_registation_form_a_body">
+        <div class="container  sg_registation_form">
+            <div class="row justify-content-center sg_registation_form_body">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="card shadow sg_registation_form_bod">
+                        <div class="card-header card_color_sg text-white text-center">
+                            <h4>User Register Form</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Success Alert -->
+                            <!-- <div id="successMessage" class="alert alert-success d-none" role="alert">
+                                Registration successful!
+                            </div> -->
+                            <div id="flashMessage" class="flash-message"></div>
+
+                            <form id="registrationForm" action="http://localhost:9090/api/register" method="post">
+                                <!-- Hidden Role Field -->
+                                <input type="hidden" id="role" name="role" value="CLIENT">
+
+                                <!-- First Name and Last Name -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"
+                                            placeholder="Enter your first name" required>
+                                    </div>
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                            placeholder="Enter your last name" required>
+                                    </div>
+                                </div>
+
+                                <!-- Phone and Email -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone"
+                                            placeholder="Enter your phone number" required>
+                                    </div>
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Enter your password" required>
+                                    </div>
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            name="confirmPassword" placeholder="Confirm your password" required="">
+                                        <span id="confirmPasswordIcon"
+                                            class="position-absolute top-50 end-0 translate-middle-y me-3"></span>
+                                    </div>
+                                </div>
+
+                                <!-- State and City -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="state" class="form-label">State</label>
+                                        <select class="form-select" id="state" name="state" required>
+                                            <option value="" selected disabled>Select State</option>
+                                            <option value="AN">ANDAMAN & NICOBAR</option>
+                                            <option value="AP">ANDHRA PRADESH</option>
+                                            <option value="AR">ARUNACHAL PRADESH</option>
+                                            <option value="AS">ASSAM</option>
+                                            <option value="BH">BIHAR</option>
+                                            <option value="CG">CHHATTISGARH</option>
+                                            <option value="DL">DELHI</option>
+                                            <option value="GO">GOA</option>
+                                            <option value="GU">GUJARAT</option>
+                                            <option value="HR">HARYANA</option>
+                                            <option value="HP">HIMACHAL PRADESH</option>
+                                            <option value="JK">JAMMU & KASHMIR</option>
+                                            <option value="KA">KARNATAKA</option>
+                                            <option value="KL">KERALA</option>
+                                            <option value="MP">MADHYA PRADESH</option>
+                                            <option value="MH">MAHARASHTRA</option>
+                                            <option value="OR">ODISHA</option>
+                                            <option value="PB">PUNJAB</option>
+                                            <option value="RJ">RAJASTHAN</option>
+                                            <option value="TN">TAMIL NADU</option>
+                                            <option value="UP">UTTAR PRADESH</option>
+                                            <option value="WB">WEST BENGAL</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 sg_lebule_form">
+                                        <label for="city" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="city" name="city"
+                                            placeholder="Enter your city" required>
+                                    </div>
+                                </div>
+
+                                <!-- Current Address -->
+                                <div class="mb-3 sg_lebule_form">
+                                    <label for="currentAddress" class="form-label">Current Address</label>
+                                    <textarea class="form-control" id="currentAddress" name="currentAddress" rows="3"
+                                        placeholder="Enter your address..." required></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="d-grid">
+                                    <button type="button" id="submitBtn" class="btn card_color_sg">Submit</button>
+                                </div>
+                                <div>
+                                    <p class="signup">
+                                        Don't have an account? <a href="gs-login.html">Sign up</a>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Bundle JS (includes Popper.js) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script>
+            // JavaScript for Confirm Password Validation
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const confirmPasswordIcon = document.getElementById('confirmPasswordIcon');
+            const successMessage = document.getElementById('successMessage');
+            const registrationForm = document.getElementById('registrationForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            confirmPassword.addEventListener('input', () => {
+                if (confirmPassword.value === password.value && confirmPassword.value !== '') {
+                    confirmPasswordIcon.innerHTML = '<i class="fas fa-check-circle text-success"></i>';
+                } else {
+                    confirmPasswordIcon.innerHTML = '<i class="fas fa-times-circle text-danger"></i>';
+                }
+            });
+
+            // Handle form submission
+            submitBtn.addEventListener('click', () => {
+                if (registrationForm.checkValidity() && confirmPassword.value === password.value) {
+                    successMessage.classList.remove('d-none');
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Please fill all fields correctly.');
+                }
+            });
+        </script> -->
+    </section>
+    <!-- Sg_Footer_ -->
+    <my-footer></my-footer>
+
+
+
+    <script>
+        // JavaScript to make header sticky on scroll
+        window.onscroll = function () { makeHeaderSticky() };
+
+        function makeHeaderSticky() {
+            const header = document.getElementById("header");
+            const sticky = header.offsetTop;
+
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        // Mobile menu toggle function
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script src="register.js"></script>
+    <script src="config.js"></script>
+</body>
+
+</html>

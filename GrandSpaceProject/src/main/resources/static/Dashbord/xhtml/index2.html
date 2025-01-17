@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>grandspce</title>
+	<meta charset="utf-8">
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<!-- Vectormap -->
+	<link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="Backend_css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="Backend_css/dasbored.css">
+	<!-- my-header -->
+	<script type="module" src="main.js"></script>
+</head>
+
+<body>	
+	<my-header></my-header>
+	<!--**********************************
+            Sidebar end
+        ***********************************-->
+
+	<!--**********************************
+            Content body start
+        ***********************************-->
+
+	<div class="content-body">
+		<!-- row -->
+		<div class="container-fluid">
+			<div class="form-head d-md-flex mb-sm-4 mb-3 align-items-start">
+				<div class="me-auto d-lg-block d-block">
+					<h2 class="text-black font-w600">Dashboard</h2>
+				</div>
+				<a href="index2.html" class="btn btn-primary rounded light">Refresh</a>
+			</div>
+
+			<!-- .cart -->
+
+
+			<div class="row">
+				<div class="col-xl-12">
+					<ul class="nav nav-pills review-tab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<a href="#navpills-1" class="nav-link active" data-bs-toggle="tab" aria-expanded="false"
+								aria-selected="true" role="tab">Project</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a href="#navpills-2" class="nav-link" data-bs-toggle="tab" aria-expanded="false"
+								aria-selected="false" role="tab" tabindex="-1">Payment</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a href="#navpills-3" class="nav-link" data-bs-toggle="tab" aria-expanded="true"
+								aria-selected="false" role="tab" tabindex="-1">Vendor</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a href="#navpills-4" class="nav-link" data-bs-toggle="tab" aria-expanded="true"
+								aria-selected="false" role="tab" tabindex="-1">Payments Due</a>
+						</li>
+					</ul>
+					<div class="tab-content p-4 mb-4 bg-white">
+						<div id="navpills-1" class="tab-pane active show" role="tabpanel">
+							<div class="row sg_card_body">
+								<div class="col-md-3 col-xl-3">
+									<a href="total-project.html">
+										<div class="card bg-c-blue order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Active Project</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/total-project.svg" alt="">
+													<span id="totalProjects"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="assignment-project.html">
+										<div class="card bg-c-green order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Assigned Project</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/assignment-project.svg" alt="">
+													<span id="assignedProject" class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+
+								<div class="col-md-3 col-xl-3">
+									<a href="not-assignment-project.html">
+										<div class="card bg-c-yellow order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Unpublish Projects</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/not-assignment.svg" alt="">
+													<span id="notAssignedProject"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+
+								<div class="col-md-3 col-xl-3">
+									<a href="awaiting-estimate.html">
+										<div class="card bg-c-pink order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Awaiting Estimate</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/awaiting-estimate.svg" alt="">
+													<span id="awaitingEstimateProjects"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="confirmed-project.html ">
+										<div class="card bg-c-pink order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Not Assigned Project</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/confirmedproject.svg" alt="">
+													<span id="confirmedProjects"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="completed-project.html">
+										<div class="card bg-c-Dark-green order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Completed Project</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/complete_project.svg" alt="">
+													<span id="completedProjects"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="work-in-progress.html">
+										<div class="card bg-c-cauction order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Work in Progress</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/work-project.svg" alt="">
+													<span id="workInProgreshProject"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="dispatch-project.html">
+										<div class="card bg-c-pink-dispatch order-card gs_admin_project_card">
+											<div class="card-block">
+												<h6 class="m-b-20">Dispute Project</h6>
+												<div
+													class="confirmed_project Projecttext-right d-flex align-items-center justify-content-sm-between">
+													<img src="./images/work-in-proses.svg" alt="">
+													<span id="dispatchedProjects"class="counter"></span>
+												</div>
+												<button class="client_view-more client_details_add_bottn">
+													View More
+												</button>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<!-- ////////////////////card -->
+						<div id="navpills-2" class="tab-pane" role="tabpanel">
+							<div class="row sg_card_body">
+								
+								<div class="col-md-3 col-xl-3">
+									<a href="totale-amount-of-project.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Totale Amount of Active Projects</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/totale-amount-Project.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="totalProjectAmount"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--  -->
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="over-due-amount.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Total Profit</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/Over-Due-Amount.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="totalProfit"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="totale-number-of-due.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Totale Paid Amount</h3>
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/totale-number-of-due.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="totalPaidAmount"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+
+								<div class="col-md-3 col-xl-3">
+									<a href="number-of-defolte.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Totale Amount To Be Paid</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/number_of_defolte.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="totalAmountToBePaid"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								
+							</div>
+						</div>
+						<div id="navpills-3" class="tab-pane" role="tabpanel">
+							<div class="row sg_card_body">
+								<div class="col-md-3 col-xl-3">
+									<a href="maneger.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Totale Number of Vendor</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/totale-number-of-vendor.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="totalNoOfVendors"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--  -->
+									</a>
+								</div>
+
+
+
+								<div class="col-md-3 col-xl-3">
+									<a href="active-vender.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Active Vendor</h3>
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="./images/active-vender.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="activeVendor"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</a>
+								</div>
+
+								<div class="col-md-3 col-xl-3">
+									<a href="active-vender.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Premium Vendor</h3>
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="./images/premium-vendor.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 id="premiumVendor"class="counter"></h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="block-list-endor.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Block list Vendor</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="./images/block-list-vendor.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 class="counter">67</h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div id="navpills-4" class="tab-pane" role="tabpanel">
+							<div class="row sg_card_body">
+								<div class="col-md-3 col-xl-3">
+									<a href="totale-due.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Totale Due</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/totale-due.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 class="counter">10</h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--  -->
+									</a>
+								</div>
+
+
+
+								<div class="col-md-3 col-xl-3">
+									<a href="no-of-vendor-due.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>No of Vendor Due</h3>
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/no-of-vendor-due.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 class="counter">20</h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+
+								<div class="col-md-3 col-xl-3">
+									<a href="amount-of-advance.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Amount of Advance</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/amount-of-advance.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 class="counter">12</h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="col-md-3 col-xl-3">
+									<a href="long-pending-due.html">
+										<div class="gs_payment_cards_box">
+											<div class="solution_card">
+												<div class="hover_color_bubble"></div>
+												<h3>Long Pending Due</h3>
+
+												<div class="sg_payment_card_body">
+													<div class="so_top_icon">
+														<img src="images/Long-pending-due.svg" alt="">
+													</div>
+													<div class="sg_payment_card_title">
+														<h4 class="counter">122</h4>
+														<button type="button" class="read_more_btn">View More</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xl-6 col-xxl-6">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card bg-danger property-bx text-white">
+								<div class="card-body">
+									<div class="media d-sm-flex d-block align-items-center">
+										<span class="me-4 d-block mb-sm-0 mb-3">
+											<svg width="80" height="80" viewBox="0 0 80 80" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M31.8333 79.1667H4.16659C2.33325 79.1667 0.833252 77.6667 0.833252 75.8333V29.8333C0.833252 29 1.16659 28 1.83325 27.5L29.4999 1.66667C30.4999 0.833332 31.8333 0.499999 32.9999 0.999999C34.3333 1.66667 34.9999 2.83333 34.9999 4.16667V76C34.9999 77.6667 33.4999 79.1667 31.8333 79.1667ZM7.33325 72.6667H28.4999V11.6667L7.33325 31.3333V72.6667Z"
+													fill="white" />
+												<path
+													d="M75.8333 79.1667H31.6666C29.8333 79.1667 28.3333 77.6667 28.3333 75.8334V36.6667C28.3333 34.8334 29.8333 33.3334 31.6666 33.3334H75.8333C77.6666 33.3334 79.1666 34.8334 79.1666 36.6667V76C79.1666 77.6667 77.6666 79.1667 75.8333 79.1667ZM34.9999 72.6667H72.6666V39.8334H34.9999V72.6667Z"
+													fill="white" />
+												<path
+													d="M60.1665 79.1667H47.3332C45.4999 79.1667 43.9999 77.6667 43.9999 75.8334V55.5C43.9999 53.6667 45.4999 52.1667 47.3332 52.1667H60.1665C61.9999 52.1667 63.4999 53.6667 63.4999 55.5V75.8334C63.4999 77.6667 61.9999 79.1667 60.1665 79.1667ZM50.6665 72.6667H56.9999V58.8334H50.6665V72.6667Z"
+													fill="white" />
+											</svg>
+										</span>
+										<div class="media-body mb-sm-0 mb-3 me-5">
+											<h4 class="fs-22 text-white">Total Properties</h4>
+											<div class="progress mt-3 mb-2" style="height:8px;">
+												<div class="progress-bar bg-white progress-animated"
+													style="width: 86%; height:8px;" role="progressbar">
+													<span class="sr-only">86% Complete</span>
+												</div>
+											</div>
+											<span class="fs-14">431 more to break last month record</span>
+										</div>
+										<span class="fs-35 font-w500">4,562</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<div class="card property-card">
+								<div class="card-body">
+									<div class="media align-items-center">
+										<div class="media-body me-3">
+											<h2 class="fs-28 text-black font-w600">2,356</h2>
+											<p class="property-p mb-0 text-black font-w500">Properties for Sale</p>
+											<span class="fs-13">Target 3k/month</span>
+										</div>
+										<div class="d-inline-block position-relative donut-chart-sale">
+											<span class="donut1"
+												data-peity='{ "fill": ["rgb(60, 76, 184)", "rgba(236, 236, 236, 1)"],   "innerRadius": 38, "radius": 10}'>5/8</span>
+											<small class="text-primary">71%</small>
+											<span class="circle bgl-primary"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<div class="card property-card">
+								<div class="card-body">
+									<div class="media align-items-center">
+										<div class="media-body me-3">
+											<h2 class="fs-28 text-black font-w600">2,206</h2>
+											<p class="property-p mb-0 text-black font-w500">Properties for Rent</p>
+											<span class="fs-13">Target 3k/month</span>
+										</div>
+										<div class="d-inline-block position-relative donut-chart-sale">
+											<span class="donut1"
+												data-peity='{ "fill": ["rgb(55, 209, 90)", "rgba(236, 236, 236, 1)"],   "innerRadius": 38, "radius": 10}'>7/8</span>
+											<small class="text-success">90%</small>
+											<span class="circle bgl-success"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-xxl-6">
+					<div class="card">
+						<div class="card-header border-0 pb-0">
+							<h3 class="fs-18 text-black">Total Year</h3>
+							<div class="dropdown ms-auto">
+								<div class="btn-link" data-bs-toggle="dropdown">
+									<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"></rect>
+											<circle fill="#000000" cx="5" cy="12" r="2"></circle>
+											<circle fill="#000000" cx="12" cy="12" r="2"></circle>
+											<circle fill="#000000" cx="19" cy="12" r="2"></circle>
+										</g>
+									</svg>
+								</div>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+									<a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-body pt-2 pb-0">
+							<div class="d-flex flex-wrap align-items-center">
+								<span class="fs-28 text-black font-w600 me-3">$678,345</span>
+								<p class="me-sm-auto me-3 mb-sm-0 mb-3">last month $563,443</p>
+								<div class="d-flex align-items-center">
+									<svg class="me-3" width="87" height="47" viewBox="0 0 87 47" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M29.8043 20.9254C15.2735 14.3873 5.88029 27.282 3 34.5466V46.2406H85V4.58005C70.8925 -0.868404 70.5398 8.66639 60.8409 19.5633C51.1419 30.4602 47.9677 29.0981 29.8043 20.9254Z"
+											fill="url(#paint0_linear)" />
+										<path
+											d="M3 35.2468C5.88029 27.9822 15.2735 15.0875 29.8043 21.6257C47.9677 29.7984 51.1419 31.1605 60.8409 20.2636C70.5398 9.36665 70.8925 -0.168147 85 5.28031"
+											stroke="#37D159" stroke-width="6" />
+										<defs>
+											<linearGradient id="paint0_linear" x1="44" y1="-36.4332" x2="44"
+												y2="45.9686" gradientUnits="userSpaceOnUse">
+												<stop stop-color="#37D159" offset="0" />
+												<stop offset="1" stop-color="#37D159" stop-opacity="0" />
+											</linearGradient>
+										</defs>
+									</svg>
+									<span class="fs-22 text-success me-2">7%</span>
+									<svg width="12" height="6" viewBox="0 0 12 6" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 6L6 2.62268e-07L12 6" fill="#37D159" />
+									</svg>
+								</div>
+							</div>
+							<div id="chartTimeline"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-9 col-xxl-9">
+					<div class="row">
+						<div class="col-xl-8 col-xxl-8">
+							<div class="card">
+								<div class="card-header border-0 pb-0">
+									<h3 class="fs-18 text-black">Overview</h3>
+									<div class="dropdown ms-auto">
+										<div class="btn-link" data-bs-toggle="dropdown">
+											<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"></rect>
+													<circle fill="#000000" cx="5" cy="12" r="2"></circle>
+													<circle fill="#000000" cx="12" cy="12" r="2"></circle>
+													<circle fill="#000000" cx="19" cy="12" r="2"></circle>
+												</g>
+											</svg>
+										</div>
+										<div class="dropdown-menu dropdown-menu-end">
+											<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+											<a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="d-sm-flex flex-wrap  justify-content-around">
+										<div class="d-flex mb-4 align-items-center">
+											<span class="rounded me-3 bg-primary p-3">
+												<svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M10.3458 25.7292H1.35412C0.758283 25.7292 0.270782 25.2417 0.270782 24.6458V9.69583C0.270782 9.42499 0.379116 9.09999 0.595783 8.93749L9.58745 0.541659C9.91245 0.270825 10.3458 0.162492 10.725 0.324992C11.1583 0.541659 11.375 0.920825 11.375 1.35416V24.7C11.375 25.2417 10.8875 25.7292 10.3458 25.7292ZM2.38328 23.6167H9.26245V3.79166L2.38328 10.1833V23.6167Z"
+														fill="white" />
+													<path
+														d="M24.6458 25.7292H10.2916C9.69578 25.7292 9.20828 25.2417 9.20828 24.6458V11.9167C9.20828 11.3208 9.69578 10.8333 10.2916 10.8333H24.6458C25.2416 10.8333 25.7291 11.3208 25.7291 11.9167V24.7C25.7291 25.2417 25.2416 25.7292 24.6458 25.7292ZM11.375 23.6167H23.6166V12.9458H11.375V23.6167Z"
+														fill="white" />
+													<path
+														d="M19.5541 25.7292H15.3833C14.7874 25.7292 14.2999 25.2417 14.2999 24.6458V18.0375C14.2999 17.4417 14.7874 16.9542 15.3833 16.9542H19.5541C20.1499 16.9542 20.6374 17.4417 20.6374 18.0375V24.6458C20.6374 25.2417 20.1499 25.7292 19.5541 25.7292ZM16.4666 23.6167H18.5249V19.1208H16.4666V23.6167Z"
+														fill="white" />
+												</svg>
+											</span>
+											<div>
+												<p class="fs-14 mb-1">Total Sale</p>
+												<span class="fs-18 text-black font-w700">2,346 Unit</span>
+											</div>
+										</div>
+										<div class="d-flex mb-4 align-items-center">
+											<span class="rounded me-3 bg-success p-3">
+												<svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M10.3458 25.7292H1.35412C0.758283 25.7292 0.270782 25.2417 0.270782 24.6458V9.69583C0.270782 9.42499 0.379116 9.09999 0.595783 8.93749L9.58745 0.541659C9.91245 0.270825 10.3458 0.162492 10.725 0.324992C11.1583 0.541659 11.375 0.920825 11.375 1.35416V24.7C11.375 25.2417 10.8875 25.7292 10.3458 25.7292ZM2.38328 23.6167H9.26245V3.79166L2.38328 10.1833V23.6167Z"
+														fill="white" />
+													<path
+														d="M24.6458 25.7292H10.2916C9.69578 25.7292 9.20828 25.2417 9.20828 24.6458V11.9167C9.20828 11.3208 9.69578 10.8333 10.2916 10.8333H24.6458C25.2416 10.8333 25.7291 11.3208 25.7291 11.9167V24.7C25.7291 25.2417 25.2416 25.7292 24.6458 25.7292ZM11.375 23.6167H23.6166V12.9458H11.375V23.6167Z"
+														fill="white" />
+													<path
+														d="M19.5541 25.7292H15.3833C14.7874 25.7292 14.2999 25.2417 14.2999 24.6458V18.0375C14.2999 17.4417 14.7874 16.9542 15.3833 16.9542H19.5541C20.1499 16.9542 20.6374 17.4417 20.6374 18.0375V24.6458C20.6374 25.2417 20.1499 25.7292 19.5541 25.7292ZM16.4666 23.6167H18.5249V19.1208H16.4666V23.6167Z"
+														fill="white" />
+												</svg>
+											</span>
+											<div>
+												<p class="fs-14 mb-1">Total Rent</p>
+												<span class="fs-18 text-black font-w700">1,252 Unit</span>
+											</div>
+										</div>
+									</div>
+									<div id="chartBar"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-4 col-xxl-4">
+							<div class="row">
+								<div class="col-xl-12 col-xxl-12 col-md-6">
+									<div class="card">
+										<div class="card-body">
+											<div id="monocromeChart"></div>
+											<div class="d-flex flex-wrap mt-3">
+												<span class="text-black font-w600 me-5 mb-2">
+													<svg class="me-2" width="20" height="20" viewBox="0 0 20 20"
+														fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect width="20" height="20" rx="8" fill="#FFB067" />
+													</svg>Vender</span>
+												<span class="text-black font-w600 mb-2">
+													<svg class="me-2" width="20" height="20" viewBox="0 0 20 20"
+														fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect width="20" height="20" rx="8" fill="#B655E4" />
+													</svg>Clients</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12 col-xxl-12 col-md-6">
+									<div class="card">
+										<div class="card-body">
+											<p class="mb-2 d-flex  fs-16 text-black font-w500">Product Viewed
+												<span class="pull-right ms-auto text-dark fs-14">561/days</span>
+											</p>
+											<div class="progress mb-4" style="height:10px">
+												<div class="progress-bar bg-primary progress-animated"
+													style="width:75%; height:10px;" role="progressbar">
+													<span class="sr-only">75% Complete</span>
+												</div>
+											</div>
+											<p class="mb-2 d-flex  fs-16 text-black font-w500">Product Listed
+												<span class="pull-right ms-auto text-dark fs-14">3,456 Unit</span>
+											</p>
+											<div class="progress mb-3" style="height:10px">
+												<div class="progress-bar bg-primary progress-animated"
+													style="width:90%; height:10px;" role="progressbar">
+													<span class="sr-only">90% Complete</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-xxl-3">
+					<div class="row">
+						<div class="col-xl-12 col-lg-6">
+							<div class="card">
+								<div class="card-header border-0 pb-0">
+									<h3 class="fs-18 text-black">Customer Review</h3>
+									<div class="dropdown ms-auto">
+										<div class="btn-link" data-bs-toggle="dropdown">
+											<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"></rect>
+													<circle fill="#000000" cx="5" cy="12" r="2"></circle>
+													<circle fill="#000000" cx="12" cy="12" r="2"></circle>
+													<circle fill="#000000" cx="19" cy="12" r="2"></circle>
+												</g>
+											</svg>
+										</div>
+										<div class="dropdown-menu dropdown-menu-end">
+											<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+											<a class="dropdown-item text-danger" href="javascript:void(0);">Delete</a>
+										</div>
+									</div>
+								</div>
+								<div class="card-body pb-0">
+									<div class="pb-3 border-bottom mb-3">
+										<div class="d-flex mb-3 flex-wrap align-items-end">
+											<img class="rounded me-3" src="images/customers/1.jpg" width="58" alt="/">
+											<div>
+												<h6 class="fs-16 text-black font-w600">John Doe</h6>
+												<div class="star-icons">
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+												</div>
+											</div>
+											<span class="fs-14 ms-auto">5m ago</span>
+										</div>
+										<p class="fs-14 mb-0">Friendly service
+											Josh, Lunar and everyone at Just Property in Hastings deserved a big
+											Thank You from us for moving us from Jakarta to Medan during the
+											lockdown.
+										</p>
+									</div>
+									<div class="pb-3 mb-3">
+										<div class="d-flex mb-3 flex-wrap align-items-end">
+											<img class="rounded me-3" src="images/customers/2.jpg" width="58" alt="/">
+											<div>
+												<h6 class="fs-16 text-black font-w600">Amelia Tuner</h6>
+												<div class="star-icons">
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+													<i class="las la-star"></i>
+												</div>
+											</div>
+											<span class="fs-14 ms-auto">10h ago</span>
+										</div>
+										<p class="fs-14 mb-0">I viewed a number of properties with Just Property and
+											found them to be professional, efficient, patient, courteous and helpful
+											every time.
+										</p>
+									</div>
+								</div>
+								<div class="card-footer border-0 p-0">
+									<a href="review.html" class="btn d-block btn-primary rounded">See More
+										Reviews</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-xl-12 col-lg-12">
+					<div class="filter cm-content-box box-primary">
+						<div class="content-title SlideToolHeader">
+							<div class="cpa">
+								<i class="fa-solid fa-file-lines me-1"></i>Contact List
+							</div>
+							<div class="tools">
+								<a href="javascript:void(0);" class="expand handle"><i
+										class="fal fa-angle-down"></i></a>
+							</div>
+						</div>
+						<div class="cm-content-body form excerpt sg_tebule_data">
+							<div class="card-body pb-4">
+								<div class="table-responsive">
+									<div class="table-wrapper">
+										<div class="table-title">
+											<div class="row">
+												<div class="col-sm-8">
+													<h2>Employee <b>Details</b></h2>
+												</div>
+												<div class="col-sm-4">
+													<button type="button" class="btn btn-info add-new"><i
+															class="fa fa-plus"></i> Add New</button>
+												</div>
+											</div>
+										</div>
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th>Si.No</th>
+													<th>Requirement</th>
+													<th>Quantity</th>
+													<th>Description</th>
+													<th>Description</th>
+													<th>Due date</th>
+													<th>Actions</th>
+													<!-- Add an actions column for edit, delete, etc. -->
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td><input type="text" class="form-control" name="requirement"
+															id="requirement"></td>
+													<td><input type="text" class="form-control" name="quantity"
+															id="quantity"></td>
+													<td><input type="text" class="form-control"  name="description"
+															id="description"></td>
+													<td><input type="text" class="form-control" name="extra_description"
+															id="extra_description"></td>
+													<td><input type="text" class="form-control" name="due_date"
+															id="due_date"></td>
+													<td>
+														<a class="add addbot" title="Add" data-toggle="tooltip"><i
+																class="material-icons">&#xE03B;</i></a>
+														<a class="edit editbot" title="Edit" data-toggle="tooltip"><i
+																class="material-icons">&#xE254;</i></a>
+														<a class="delete" title="" data-toggle="tooltip"><i
+																class="material-icons">&#xE872;</i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div class="d-flex align-items-center justify-content-between flex-wrap">
+										<p class="mb-2 me-3">Page 1 of 5, showing 2 records out of 8 total, starting on
+											record 1, ending on 2</p>
+										<nav aria-label="Page navigation example mb-2">
+											<ul class="pagination mb-2 mb-sm-0">
+												<li class="page-item"><a class="page-link" href="javascript:void(0);"><i
+															class="fa-solid fa-angle-left"></i></a></li>
+												<li class="page-item"><a class="page-link"
+														href="javascript:void(0);">1</a></li>
+												<li class="page-item"><a class="page-link"
+														href="javascript:void(0);">2</a></li>
+												<li class="page-item"><a class="page-link"
+														href="javascript:void(0);">3</a></li>
+												<li class="page-item"><a class="page-link" href="javascript:void(0);"><i
+															class="fa-solid fa-angle-right"></i></a></li>
+											</ul>
+										</nav>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--**********************************
+            Content body end
+        ***********************************-->
+
+	<!--**********************************
+            Footer start
+        ***********************************-->
+	<div class="footer">
+		<div class="copyright">
+			<p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com.com/" target="_blank">cyfrife.com</a>
+				<span class="current-year">2025</span>
+			</p>
+		</div>
+	</div>
+	<!--**********************************
+            Footer end
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+	</div>
+
+
+
+
+	<!-- counters -->
+
+    <script src="main.js">
+       
+    </script>
+	<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+	<!--**********************************
+        Scripts
+    ***********************************-->
+	<!-- Required vendors -->
+	<script src="vendor/global/global.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/chartjs/chart.bundle.min.js"></script>
+	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+
+	<!-- Apex Chart -->
+	<script src="vendor/apexchart/apexchart.js"></script>
+	<!-- Vectormap -->
+	<script src="vendor/jqvmap/js/jquery.vmap.min.js"></script>
+	<script src="vendor/jqvmap/js/jquery.vmap.world.js"></script>
+	<script src="vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+
+	<!-- Chart piety plugin files -->
+	<script src="vendor/peity/jquery.peity.min.js"></script>
+
+
+	<script src="js/dashboard/dashboard-1.js"></script>
+	<script src="js/custom.min.js"></script>
+	<script src="js/deznav-init.js"></script>
+	<!-- Dashboard 1 -->
+
+	<script>
+		function carouselReview() {
+			/*  testimonial one function by = owl.carousel.js */
+			jQuery('.testimonial-one').owlCarousel({
+				loop: true,
+				autoplay: true,
+				margin: 0,
+				nav: true,
+				dots: false,
+				navText: ['<i class="las la-long-arrow-alt-left"></i>', '<i class="las la-long-arrow-alt-right"></i>'],
+				responsive: {
+					0: {
+						items: 1
+					},
+
+					480: {
+						items: 1
+					},
+
+					767: {
+						items: 1
+					},
+					1000: {
+						items: 1
+					}
+				}
+			})
+			/*Custom Navigation work*/
+			jQuery('#next-slide').on('click', function () {
+				$('.testimonial-one').trigger('next.owl.carousel');
+			});
+
+			jQuery('#prev-slide').on('click', function () {
+				$('.testimonial-one').trigger('prev.owl.carousel');
+			});
+			/*Custom Navigation work*/
+		}
+
+		jQuery(window).on('load', function () {
+			setTimeout(function () {
+				carouselReview();
+			}, 1000);
+		});
+	</script>
+
+
+
+	<script>
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+			var actions = $("table td:last-child").html();
+
+			// Append table with add row form on add new button click
+			$(".add-new").click(function () {
+				$(this).attr("disabled", "disabled");
+				var index = $("table tbody tr:last-child").index();
+				var row = '<tr>' +
+					'<td></td>' +  // Empty cell for serial number
+					'<td><input type="text" class="form-control" name="requirement" id="requirement"></td>' +
+					'<td><input type="text" class="form-control" name="quantity" id="quantity"></td>' +
+					'<td><input type="text" class="form-control"  name="description" id="description"></td>' +
+					'<td><input type="text" class="form-control" name="extra_description" id="extra_description"></td>' +
+					'<td><input type="text" class="form-control" name="due_date" id="due_date"></td>' +
+					'<td>' + actions + '</td>' +
+					'</tr>';
+				$(".table tbody").append(row);
+				$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+				$('[data-toggle="tooltip"]').tooltip();
+				updateSerialNumbers(); // Update serial numbers after adding row
+			});
+
+			// Add row on add button click
+			$(document).on("click", ".add", function () {
+				var empty = false;
+				var input = $(this).parents("tr").find('input[type="text"]');
+				input.each(function () {
+					if (!$(this).val()) {
+						$(this).addClass("error");
+						empty = true;
+					} else {
+						$(this).removeClass("error");
+					}
+				});
+				$(this).parents("tr").find(".error").first().focus();
+				if (!empty) {
+					input.each(function () {
+						$(this).parent("td").html($(this).val());
+					});
+					$(this).parents("tr").find(".add, .edit").toggle();
+					$(".add-new").removeAttr("disabled");
+					updateSerialNumbers(); // Update serial numbers after adding data
+				}
+			});
+
+			// Edit row on edit button click
+			$(document).on("click", ".edit", function () {
+				var currentRow = $(this).parents("tr");
+				currentRow.find("td:not(:last-child)").each(function () {
+					var cellText = $(this).text();
+					$(this).html('<input type="text" class="form-control" value="' + cellText + '">');
+				});
+				$(this).parents("tr").find(".add, .edit").toggle();
+				var saveBtn = '<a class="save" title="Save" data-toggle="tooltip"><i class="material-icons">&#xE161;</i></a>';
+				$(this).parents("tr").find(".edit").after(saveBtn);
+				$(".add-new").attr("disabled", "disabled");
+			});
+
+			// Save row on save button click
+			$(document).on("click", ".save", function () {
+				var currentRow = $(this).parents("tr");
+				var input = currentRow.find('input[type="text"]');
+				input.each(function () {
+					$(this).parent("td").html($(this).val());
+				});
+				$(this).parents("tr").find(".save").remove();
+				$(this).parents("tr").find(".add, .edit").toggle();
+				$(".add-new").removeAttr("disabled");
+				updateSerialNumbers(); // Update serial numbers after saving
+			});
+
+			// Delete row on delete button click
+			$(document).on("click", ".delete", function () {
+				$(this).parents("tr").remove();
+				$(".add-new").removeAttr("disabled");
+				updateSerialNumbers(); // Update serial numbers after deletion
+			});
+
+			// Function to update serial numbers
+			function updateSerialNumbers() {
+				$("table tbody tr").each(function (index) {
+					$(this).find("td:first").text(index + 1); // Update the first column (serial number)
+				});
+			}
+		});
+	</script>
+
+	<!-- Project Scripts -->
+	<script src="js/projrct-dashbord/totalProject.js"></script>
+	<script src="js/projrct-dashbord/assignedProject.js"></script>
+	<script src="js/projrct-dashbord/notAssignedProject.js"></script>
+	<script src="js/projrct-dashbord/awaitingEstimateProjects.js"></script>
+	<script src="js/projrct-dashbord/confirmedProjects.js"></script>
+	<script src="js/projrct-dashbord/completedProjects.js"></script>
+	<script src="js/projrct-dashbord/workInProgreshProject.js"></script>
+	<script src="js/projrct-dashbord/dispatchedProjects.js"></script>
+
+	<!-- Payment Scripts -->
+	<script src="js/payment-dashbord/totalProjectAmount.js"></script>
+	<script src="js/payment-dashbord/totalPaidAmount.js"></script>
+	<script src="js/payment-dashbord/totalAmountToBePaid.js"></script>
+	<script src="js/payment-dashbord/totalProfit.js"></script>
+
+	<!-- Vendors/Managers Scripts -->
+	 <script src="js/manager-dashbord/totalNoOfVendors.js"></script>
+	 <script src="js/manager-dashbord/premiumVendor.js"></script>
+	 <script src="js/manager-dashbord/activeVendor.js"></script>
+     <script src="config.js"></script>
+
+</body>
+
+</html>

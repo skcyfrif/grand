@@ -1,0 +1,40 @@
+@media (max-width: 1920px) {
+    .offcanvas-body {
+        display: none !important;
+    }
+    .navbar-expand-lg {
+        display: flex !important
+;
+        flex-basis: unset !important;
+    }
+    .sg_offcanvas_menu {
+        display: none !important;
+    }
+    
+     
+}
+
+
+
+@media (max-width: 1024px) {
+    .offcanvas {
+        display: block;
+    }
+
+    .collapse {
+        display: none;
+    }
+    .offcanvas-body {
+        display: block !important;
+    }
+    .sg_offcanvas_menu {
+        display: block !important;
+    }
+    .navbar-collapse {
+        display: none !important;
+    }
+    
+}
+@media (min-width: 1920px) {
+    
+}

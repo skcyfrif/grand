@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>grandspce</title>
+    <meta charset="utf-8">
+
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="Backend_css/style.css" rel="stylesheet">
+    <script type="module" src="main.js"></script>
+
+</head>
+
+<body>
+
+    <my-header></my-header>
+
+    <!--**********************************
+            Content body start
+        ***********************************-->
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xl-12">
+                    <div class="">
+
+                        <!-- row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Project Management</h4>
+                                    </div>
+                                    <div class="card-body" id="projects">
+                                        <div class="table-responsive">
+                                            <table class="table table-responsive-md">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="width80">Id</th>
+                                                        <th>Project Name</th>
+                                                        <th>Status</th>
+                                                        <th>Client</th>
+                                                        <th>Assigned Manager</th>
+                                                        <th>Description</th>
+                                                        <th>Start Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+            Content body end
+        ***********************************-->
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com/" target="_blank">cyfrife.com</a>
+                <span class="current-year">2025</span>
+            </p>
+        </div>
+    </div>
+    <!--**********************************
+            Footer end
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="js/plugins-init/datatables.init.js"></script>
+
+    <script src="js/custom.min.js"></script>
+    <script src="js/deznav-init.js"></script>
+    <script src="js/projrct-dashbord/project_details.js"></script>
+
+    <script>
+        // When the button is clicked, redirect to a new page
+        document.getElementById("showEstimatesBtn").addEventListener("click", function() {
+            // Redirect to a new page (you can adjust the URL as needed)
+            window.location.href = "ProjectEstimates.html";  // Use the actual projectId dynamically here
+        });
+    </script>
+    <script>
+        // Fetch the number of estimates from the server
+        fetch('http://localhost:9090/api/projectS/project-estimates/count')
+            .then(response => response.json())
+            .then(data => {
+                // Set the count in the h3 tag
+                document.getElementById('estimateCount').textContent = data;
+            })
+            .catch(error => console.error('Error fetching project estimates count:', error));
+    </script>
+    <script src="config.js"></script>
+
+</body>
+
+</html>

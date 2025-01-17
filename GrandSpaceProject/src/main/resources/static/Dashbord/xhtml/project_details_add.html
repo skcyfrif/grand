@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>grandspce</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="vendor/dropzone/dist/dropzone.css" rel="stylesheet">
+	<link href="Backend_css/style.css" rel="stylesheet">
+	<script type="module" src="main.js"></script>
+
+</head>
+
+<body>
+	<my-header></my-header>
+	<!--**********************************
+            Sidebar end
+        ***********************************-->
+
+	<!--**********************************
+            Content body start
+        ***********************************-->
+	<div class="content-body">
+		<div class="container-fluid">
+
+			<!-- row -->
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Add Client</h4>
+						</div>
+						<div class="card-body">
+							<form id="registrationForm">
+								<div class="row">
+									<div class="mb-3 col-lg-4 col-md-6">
+										<label for="name" class="form-label">Project Name:</label>
+										<input type="text" id="name" class="form-control" name="name"
+											placeholder="Enter your project name" required>
+									</div>
+
+									<div class="mb-3 col-lg-4 col-md-6">
+										<label for="description" class="form-label">Description:</label>
+										<input type="text" id="description" class="form-control" name="description"
+											placeholder="Enter project description" required>
+									</div>
+									<div class="mb-3 col-lg-4 col-md-6">
+										<label for="areaInSquareFeet" class="form-label">Area In SquareFeet:</label>
+										<input type="number" id="areaInSquareFeet" class="form-control" name="areaInSquareFeet"
+											placeholder="Enter your total area" required>
+									</div>
+
+									<div class="mb-3 col-lg-4 col-md-6">
+										<label for="budget" class="form-label">Project Budget:</label>
+										<input type="number" id="budget" class="form-control" name="budget"
+											placeholder="Enter project budget" required minlength="6">
+									</div>
+									<div class="mb-3 col-12">
+										<label for="clientId" class="form-label">client Id:</label>
+										<input type="text" id="clientId" class="form-control" name="clientId"
+											placeholder="Enter your client Id" required>
+									</div>
+
+								</div>
+
+								<div class="	pt-3">
+									<button type="submit" class="btn btn-sm btn-primary me-2">Register</button>
+									<button type="button" id="cancelButton" class="btn btn-sm btn-danger light">Cancel</button>
+								</div>
+
+							</form>
+				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--**********************************
+            Content body end
+        ***********************************-->
+
+
+	<!--**********************************
+            Footer start
+        ***********************************-->
+	<div class="footer">
+		<div class="copyright">
+			<p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com/" target="_blank">cyfrife.com</a>
+				<span class="current-year">2025</span>
+			</p>
+		</div>
+	</div>
+	<!--**********************************
+            Footer end
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+	<!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+	</div>
+	<!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+	<!--**********************************
+        Scripts
+    ***********************************-->
+	<!-- Required vendors -->
+	<script src="vendor/global/global.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js"></script>
+	<script src="vendor/dropzone/dist/dropzone.js"></script>
+	<script src="js/custom.min.js"></script>
+	<script src="js/deznav-init.js"></script>
+	<script src="js/projrct-dashbord/project_details_add.js"></script>
+	<script src="config.js"></script>
+
+</body>
+
+</html>

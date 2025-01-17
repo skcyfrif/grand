@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>grandspce</title>
+    <meta charset="utf-8">
+
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="Backend_css/style.css" rel="stylesheet">
+    <script type="module" src="client.js"></script>
+    <script src="js/payment-dashbord/budgetConfirmation.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
+
+    <style>
+        /* Remove Bootstrap's default max-width */
+        /* .modal-dialog {
+            max-width: unset;
+        } */
+
+        .sg_modale_dialog {
+            max-width: 100% !important;
+        }
+
+        /* Custom styles */
+        .modal-page.d-none {
+            display: none !important;
+        }
+
+        .modal-dialog.gs_page1-style {
+            width: 700px !important;
+        }
+
+        .modal-dialog.gs_page2-style {
+            width: 1300px !important;
+            max-width: 100%;
+            /* Correct width for page 2 */
+        }
+
+        .modal-dialog.gs_page3-style {
+            width: 700px !important;
+        }
+
+        .gs_page2-style .modal-content {
+            --bs-modal-width: unset !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <my-client></my-client>
+
+    <!--**********************************
+            Content body start
+        ***********************************-->
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+
+
+            <div class="row sg_card_body sg_maneger_card_body">
+                <div class="col-md-3 col-xl-3">
+                    <div class="gs_payment_cards_box">
+                        <div class="solution_card">
+                            <div class="hover_color_bubble"></div>
+                            <h3>Total Due</h3>
+                            <div class="sg_payment_card_body">
+                                <div class="so_top_icon">
+                                    <img src="images/maneger-total-project.svg" alt="">
+                                </div>
+                                <div class="sg_payment_card_title">
+                                    <h4 class="counter">500</h4>
+                                    <button type="button" class="read_more_btn">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xl-3">
+                    <div class="gs_payment_cards_box">
+                        <div class="solution_card">
+                            <div class="hover_color_bubble"></div>
+                            <h3>Total Payed</h3>
+                            <div class="sg_payment_card_body">
+                                <div class="so_top_icon">
+                                    <img src="images/Active Project.svg" alt="">
+                                </div>
+                                <div class="sg_payment_card_title">
+                                    <h4 class="counter">200</h4>
+                                    <button type="button" class="read_more_btn">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xl-3">
+                    <div class="gs_payment_cards_box">
+                        <div class="solution_card">
+                            <div class="hover_color_bubble"></div>
+                            <h3>Totale Payed Installment</h3>
+                            <div class="sg_payment_card_body">
+                                <div class="so_top_icon">
+                                    <img src="./images/complete_project.svg" alt="">
+                                </div>
+                                <div class="sg_payment_card_title">
+                                    <h4 class="counter">500</h4>
+                                    <button type="button" class="read_more_btn">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xl-3">
+                    <div class="gs_payment_cards_box">
+                        <div class="solution_card">
+                            <div class="hover_color_bubble"></div>
+                            <h3>Next Due Date</h3>
+                            <div class="sg_payment_card_body">
+                                <div class="so_top_icon">
+                                    <img src="images/Long-pending-due.svg" alt="">
+                                </div>
+                                <div class="sg_payment_card_title">
+                                    <h4 class="counter">500</h4>
+                                    <button type="button" class="read_more_btn">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-10">
+
+                <!-- <div class="next-btn d-flex justify-content-end col-sm-12">
+                    <button class="client_details_add_bottn" onclick="window.location.href='manegeradd.html';">
+                        ADD
+                    </button>
+                </div> -->
+
+                <div class="col-xl-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card ">
+                                <div class="sg_chart_conainer">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="gs-client-Weekly-Sales-card">
+                                                <h2>Weekly Report</h2>
+
+                                                <!-- Chart Container -->
+                                                <div class="chart-container">
+                                                    <canvas id="salesChart" width="1032" height="516"
+                                                        style="display: block; box-sizing: border-box; height: 516px; width: 1032px;"></canvas>
+                                                </div>
+                                                <!-- Summary Section -->
+                                                <div class="gs_summary_title">
+                                                    <div class="summary-item">
+                                                        <h3>Current Week</h3>
+                                                        <p>$506.54</p>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <h3>Previous Week</h3>
+                                                        <p>$305.25</p>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <h3>Conversation</h3>
+                                                        <p>3.27%</p>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <h3>Customers</h3>
+                                                        <p>3k</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-xxl-4 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-header border-0 pb-0">
+                                                    <h4 class="card-title">Installment History</h4>
+                                                </div>
+                                                <div class="card-body sg_card_body">
+                                                    <div id="DZ_W_TimeLine11"
+                                                        class="widget-timeline dz-scroll my-4 px-4 style-1 height370">
+                                                        <ul class="timeline">
+                                                            <li>
+                                                                <div class="timeline-badge primary"></div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>1 Month</span>
+                                                                    <h6 class="mb-0">05/1/2025<br><strong
+                                                                            class="text-primary">$2500</strong>.
+                                                                    </h6>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <div class="timeline-badge info">
+                                                                </div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>2 Month</span>
+                                                                    <h6 class="mb-0">07/02/2025<br><strong
+                                                                            class="text-info">$2500</strong>
+                                                                    </h6>
+
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <div class="timeline-badge danger">
+                                                                </div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>3 Month</span>
+                                                                    <h6 class="mb-0">07/02/2025<br><strong
+                                                                            class="text-warning">
+                                                                            $2500</strong></h6>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <div class="timeline-badge success">
+                                                                </div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>4 Month</span>
+                                                                    <h6 class="mb-0">07/02/2025<br><strong
+                                                                            class="text-warning">
+                                                                            $2500</strong></h6>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <div class="timeline-badge warning">
+                                                                </div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>4 Month</span>
+                                                                    <h6 class="mb-0">07/02/2025<br><strong
+                                                                            class="text-warning">
+                                                                            $2500</strong></h6>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <div class="timeline-badge dark">
+                                                                </div>
+                                                                <a class="timeline-panel text-muted"
+                                                                    href="javascript:void(0);">
+                                                                    <span>4 Month</span>
+                                                                    <h6 class="mb-0">07/02/2025<br><strong
+                                                                            class="text-warning">
+                                                                            $2500</strong></h6>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="mainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" id="modalDialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mainModalLabel">Contact Us - +91 9583215595</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <!-- Page 1 -->
+                    <div id="page1" class="modal-page gs_Project">
+                        <div class="gs_project-container">
+                            <h1>Project Details</h1>
+                            <div class="project-detail">
+                                <label for="clientId" class="d-none">Client ID:</label>
+                                <input type="hidden" id="clientId" required>
+                            </div>                            
+                            <div class="project-detail">
+                                <label for="name">Project Name:</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="project-detail">
+                                <label for="description">Description:</label>
+                                <textarea id="description"></textarea>
+                            </div>
+                            <div class="project-detail">
+                                <label for="areaInSquareFeet">Area:</label>
+                                <input type="text" id="areaInSquareFeet" required>
+                            </div>
+                            <div class="project-detail">
+                                <label for="budget">Budget:</label>
+                                <input type="text" id="budget" required>
+                            </div>
+                            <!-- <div class="tractionnumber submit-btn d-none">
+                                <div class="project-detail">
+                                    <label for="traction-number">Traction Number:</label>
+                                    <input type="text" value="">
+                                </div>
+                                <div class="project-detail">
+                                    <label for="traction-date">Traction Date:</label>
+                                    <input type="text" value="">
+                                </div>
+                            </div> -->
+                            <div class="gs_Project_detail_body">
+                                <button type="button" class="gs_Project_button next-btn">Submit</button>
+                            </div>
+                        </div>
+
+                        <!-- <button type="button" class="btn btn-primary next-btn">Next</button> -->
+
+
+
+                        <!-- <button type="button" class="btn btn-success submit-btn d-none">Submit</button> -->
+                        <!-- Submit Button -->
+                    </div>
+
+                    <!-- Page 2 -->
+                    <div id="page2" class="modal-page d-none">
+                        <div class="cyf_education_prim_section">
+                            <div class="cyf_education_prim_body">
+                                <div class="cyf_education_prim_tittle col-md-12">
+                                    <h2>Subsscription Packages Plane</h2>
+                                    <h4>Subscribe today and enjoy more</h4>
+                                </div>
+                                <div class="cyf_education_prim_details col col-md-12">
+                                    <div class="cyf_education_prim_ul">
+                                        <div class="cyf_education_prim_card">
+                                            <div class="cyf_education_prim_card_top">
+                                                <div class="cyf_education_prim_card_plane">
+                                                    <h3>Basic</h3>
+
+                                                </div>
+                                                <div class="cyf_education_prim_card_price2">
+                                                    <h3>3565</h3>
+                                                    <h5>/month</h5>
+                                                </div>
+
+                                                <div class="cyf_education_prim_card_Price">
+                                                    <ul>
+                                                        <li>Access to all standard features</li>
+                                                        <li>720p video quality</li>
+                                                        <li>Single device usage</li>
+                                                        <li>Limited customer support</li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+                                            <button class="cyf_select next-btn">Select</button>
+                                        </div>
+                                        <div class="cyf_education_prim_card">
+
+                                            <div class="cyf_education_prim_card_top">
+                                                <div class="cyf_education_prim_card_plane">
+                                                    <h3>Pro</h3>
+                                                    <img class="cyf_education_prim_card_plane_img"
+                                                        src="./assets/images/sg_premium-.png" alt="">
+                                                </div>
+                                                <div class="cyf_education_prim_card_price2">
+                                                    <h3>3565</h3>
+                                                    <h5>/month</h5>
+                                                </div>
+
+                                                <div class="cyf_education_prim_card_Price">
+                                                    <ul>
+                                                        <li>Access to all standard features</li>
+                                                        <li>720p video quality</li>
+                                                        <li>Single device usage</li>
+                                                        <li>Limited customer support</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="cyf_select next-btn">Select</button>
+                                        </div>
+                                        <div class="cyf_education_prim_card">
+                                            <div class="cyf_education_prim_card_top">
+                                                <div class="cyf_education_prim_card_plane">
+                                                    <h3>Premium</h3>
+                                                </div>
+                                                <div class="cyf_education_prim_card_price2">
+                                                    <h3>3565</h3>
+                                                    <h5>/month</h5>
+                                                </div>
+
+                                                <div class="cyf_education_prim_card_Price">
+                                                    <ul>
+                                                        <li>Access to all standard features</li>
+                                                        <li>720p video quality</li>
+                                                        <li>Single device usage</li>
+                                                        <li>Limited customer support</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button class="cyf_select next-btn">Select</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                <button type="button" class="btn btn-primary next-btn">Next</button> -->
+                    </div>
+
+                    <!-- Page 3 -->
+                    <div id="page3" class="modal-page d-none">
+                        <h3>Subscription Packages</h3>
+                        <p>Select a plan that fits your needs:</p>
+                        <ul>
+                            <li>35000.00</li>
+                            <!-- <li>Pro Plan - $20/month</li>
+                    <li>Premium Plan - $30/month</li> -->
+                        </ul>
+                        <!-- <button type="button" class="btn btn-secondary prev-btn">Previous</button> -->
+                        <button type="button" class="btn btn-success finish-btn">Phone Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--**********************************
+            Content body end
+        ***********************************-->
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://cyfrife.com/" target="_blank">cyfrife.com</a>
+                <span class="current-year">2025</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Show the modal after 1 second
+            const mainModalElement = document.getElementById("mainModal");
+            const mainModal = new bootstrap.Modal(mainModalElement);
+            setTimeout(() => {
+                mainModal.show();
+            }, 1000);
+
+            // Handle modal page transitions
+            const nextBtns = document.querySelectorAll(".next-btn");
+            const prevBtns = document.querySelectorAll(".prev-btn");
+            const finishBtn = document.querySelector(".finish-btn");
+            const submitBtn = document.querySelector(".submit-btn"); // Submit Button
+            const page1 = document.getElementById("page1");
+            const page2 = document.getElementById("page2");
+            const page3 = document.getElementById("page3");
+            const modalDialog = document.getElementById("modalDialog");
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    if (page1.classList.contains("d-none") && page2.classList.contains("d-none")) return;
+
+                    if (page1.classList.contains("d-none")) {
+                        page2.classList.add("d-none");
+                        page3.classList.remove("d-none");
+                        modalDialog.classList.remove("gs_page2-style");
+                        modalDialog.classList.add("gs_page3-style");
+                    } else {
+                        page1.classList.add("d-none");
+                        page2.classList.remove("d-none");
+                        modalDialog.classList.remove("gs_page1-style");
+                        modalDialog.classList.add("gs_page2-style");
+                    }
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    if (page3.classList.contains("d-none")) {
+                        page2.classList.add("d-none");
+                        page1.classList.remove("d-none");
+                        modalDialog.classList.remove("gs_page3-style");
+                        modalDialog.classList.add("gs_page1-style");
+                    } else {
+                        page3.classList.add("d-none");
+                        page2.classList.remove("d-none");
+                        modalDialog.classList.remove("gs_page2-style");
+                        modalDialog.classList.add("gs_page3-style");
+                    }
+                });
+            });
+
+            // Redirect to Page 1 when the "Finish" button is clicked and show Submit button
+            finishBtn.addEventListener("click", function () {
+                page3.classList.add("d-none");
+                page1.classList.remove("d-none");
+                submitBtn.classList.remove("d-none"); // Show Submit Button
+                modalDialog.classList.remove("gs_page3-style");
+                modalDialog.classList.add("gs_page1-style");
+            });
+        });
+    </script> -->
+
+    <!--**********************************
+            Footer end
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+    <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+    </div>
+
+    <script>
+        // Data for the chart
+        const data = {
+            labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            datasets: [
+                {
+                    label: 'Revenue',
+                    data: [400, 500, 450, 550, 300, 520, 350],
+                    backgroundColor: 'rgba(66, 165, 245, 0.7)',
+                    borderColor: 'rgba(66, 165, 245, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Sales',
+                    data: [300, 400, 350, 500, 250, 450, 300],
+                    backgroundColor: 'rgba(33, 33, 33, 0.7)',
+                    borderColor: 'rgba(33, 33, 33, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Profit',
+                    data: [250, 350, 300, 480, 200, 420, 250],
+                    backgroundColor: 'rgba(158, 158, 158, 0.7)',
+                    borderColor: 'rgba(158, 158, 158, 1)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Configuration for the chart
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: '$ (thousands)'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render the chart
+        const salesChart = new Chart(
+            document.getElementById('salesChart'),
+            config
+        );
+    </script>
+
+
+    <!-- photo uplored -->
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image')
+                        .attr('src', e.target.result);
+                    // Show the submit button
+                    $('#submitButton').show();
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function submitImage() {
+            alert("Image submitted successfully!");
+        }
+    </script>
+    <!-- counters -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                const targetValue = parseInt(counter.textContent, 10); // Get target value from text content
+                const duration = 100; // Animation duration in milliseconds
+                const stepTime = Math.abs(Math.floor(duration / targetValue));
+                let currentValue = 0;
+
+                const incrementCounter = () => {
+                    currentValue += 1;
+                    counter.textContent = currentValue;
+                    if (currentValue < targetValue) {
+                        setTimeout(incrementCounter, stepTime);
+                    } else {
+                        counter.textContent = targetValue; // Ensure the final value is exact
+                    }
+                };
+
+                incrementCounter();
+            });
+        });
+    </script>
+
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="js/plugins-init/datatables.init.js"></script>
+
+    <script src="js/custom.min.js"></script>
+    <script src="js/deznav-init.js"></script>
+    <script src="js/manager-dashbord/manager_details.js"></script>
+    <script src="js/projrct-dashbord/project_details_add.js"></script>
+    <script src="config.js"></script>
+</body>
+
+</html>
